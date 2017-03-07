@@ -2,4 +2,4 @@
 
 
 
-$(document).ready(function(){console.log("concat working")});
+function ConvertFormToJSON(e){var o=jQuery(e).serializeArray(),r={};return jQuery.each(o,function(){r[this.name]=this.value||""}),r}$(document).on("click","#add_team_btn",function(e){e.preventDefault();var o=$("#add_team_form"),r=ConvertFormToJSON(o);console.log(r),$.ajax({type:"POST",url:"api.php/teams",dataType:"json",data:JSON.stringify(r),success:function(e){alert("Success"),o.trigger("reset"),console.log(e)},error:function(e){console.log(e.responseText)}})}),$(document).on("click","#add_player_btn",function(e){e.preventDefault();var o=$("#add_player_form"),r=ConvertFormToJSON(o);console.log(r),$.ajax({type:"POST",url:"api.php/players",dataType:"json",data:JSON.stringify(r),success:function(e){alert("Success"),o.trigger("reset"),console.log(e)},error:function(e){console.log(e.responseText)}})});

@@ -35,3 +35,24 @@ $darkgrey: #2c2e2f;
 $transgrey: rgba(37, 37, 37, 0.65);
 $bgColour2: #f7f7f6;
 $yellow: #f2c807;
+
+body{
+	text-align: left;
+}
+form{
+	.form-row{
+		margin: 10px auto;
+		padding: 0;
+		input{
+			
+		}
+		textarea{
+			height: 200px;
+		}
+		.btn{
+			display: block;
+			margin: auto;
+			margin-right: 0;
+		}
+	}
+}

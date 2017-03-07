@@ -10,3 +10,15 @@ body {
 
 
 
+body {
+  text-align: left; }
+
+form .form-row {
+  margin: 10px auto;
+  padding: 0; }
+  form .form-row textarea {
+    height: 200px; }
+  form .form-row .btn {
+    display: block;
+    margin: auto;
+    margin-right: 0; }
