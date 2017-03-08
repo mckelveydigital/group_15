@@ -75,7 +75,7 @@
 		
 		$team = json_decode($request->getBody());
 		
-		$sql = "insert into team(name, established, description, league, mascot) values (:name, :established, :description, :league, :mascot)";
+		$sql = "insert into team(name, established, description, league, mascot, logo_path) values (:name, :established, :description, :league, :mascot, :logo_path)";
 		
 		try{
 			
@@ -88,6 +88,7 @@
 			$stmt->bindParam("description", $team->desc);
 			$stmt->bindParam("league", $team->league);
 			$stmt->bindParam("mascot", $team->mascot);
+			$stmt->bindParam("logo_path", $team->logo_path);
 			
 			$stmt->execute();
 			

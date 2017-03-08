@@ -56,3 +56,46 @@ form{
 		}
 	}
 }
+
+.all_teams_holder{
+	#all_teams{
+		.team{
+			background-color: $white;
+			color: $darkgrey;
+			border-bottom: 1px solid $darkgrey;
+			padding: 10px;
+			p{
+				margin: 0;
+			}
+			p.team_name{
+				
+			}
+			p.team_league{
+				color: $lightgrey;
+				font-size: 10px;
+			}
+			.team_badge{
+				text-align: center;
+				img{
+					max-width: 100%;
+				}
+			}
+			.more{
+				display: table;
+				text-align: center;
+				width: 100%;
+				height: 63px;
+				cursor: pointer;
+				.more_inner{
+					display: table-cell;
+					vertical-align: middle;
+					cursor: pointer;
+					i{
+						font-size: 30px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}

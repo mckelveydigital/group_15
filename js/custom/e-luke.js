@@ -73,6 +73,58 @@ $(document).on('click', '#add_player_btn', function(e) {
 });
 
 
+$(document).ready(function(){
+	
+	// AJAX call to return all teams
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: "api.php/teams",
+		success: function(data){
+			
+			// If the call was successful:
+			// Set empty variabales to store data
+			var name;
+			var est;
+			var league;
+			var mascot;
+			var desc;
+			var results = ""; 
+			var teamId;
+			var logo_path;
+			
+			// Loop through each of the teams
+			$.each(data.team, function(index, item) {   
+				
+				// Get the team attributes
+				teamId = item.id;
+				name = item.name;
+				est = item.established;
+				league = item.league;
+			    mascot = item.mascot;
+			    desc = item.description;
+			    logo_path = item.logo_path;
+			    
+			    // Append an html string with each team's data creating a div for each team
+			    results += '<div data-team="' + name + '" data-teamID="' + teamId + '" class="row team"><div class="col-md-1 team_badge"><img src="img/'+ logo_path +'.png" height="63px"/></div><div class="col-md-10 team_info"><p class="team_name">' + name + '</p><p class="team_league">' + league + '</p></div><div class="col-md-1 more"><div class="more_inner"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div></div></div>';
+				
+			});
+			
+			// Output the teams to screen					
+			$("#all_teams").html(results);
+
+		},
+		error: function(){
+			// If there is an error
+			
+			// Inform the user of the error
+			console.log("There was an error");
+			console.log(data.responseText);
+			 
+		}
+	});
+});
+
 function ConvertFormToJSON(form){
 	
     var array = jQuery(form).serializeArray();
