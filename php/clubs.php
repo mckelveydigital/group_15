@@ -1,6 +1,6 @@
 <?php require('php/header.php'); ?>
 
-<div class="all_teams_holder" class="jumbtron">
+<div id="all_teams_holder" class="jumbotron">
 	
 	<div class="container">
 		
@@ -18,8 +18,13 @@
 		
 	</div>
 	
-	<div id="all_teams" class="container"></div>
+	<div class="container">
+		
+		<div id="all_teams" class="row"></div>
+	
+	</div>
 	
 </div>
-
+<?php require('php/scripts.php'); ?>
+<script>getClubs();</script>
 <?php require('php/footer.php'); ?>
