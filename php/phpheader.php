@@ -28,7 +28,7 @@
 		
 		<a href="<?php echo $base_url . "/code/university/group_15/";?>">
 			
-			<img src="img/champions-league-logo.png" width="200px"/>
+			<img src="../img/champions-league-logo.png" width="200px"/>
 		
 		</a>
 		

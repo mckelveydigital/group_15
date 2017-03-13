@@ -104,9 +104,34 @@
 							
 							<h2>Players</h2>
 							
+							<p>Click on a player for more info.</p>
 						</div>
 						
 						<div id="team_players" class="row margin-top"></div>
+						
+						<div id="player_info">
+							
+							<div class="player_info_inner">
+								
+								<h3 class="player_info_name"></h3>
+								
+								<p>Position: <span class="player_info_position"></span></p>
+								
+								<p>Country: <span class="player_info_country"></span></p>
+								
+								<p>Born: <span class="player_info_dob"></span></p>
+								
+								<p>Shirt Number: <span class="player_info_shirt"></span></p>
+								
+							</div>
+							
+							<div id="player_info_close">
+								
+								<i class="fa fa-times"></i>
+								
+							</div>
+							
+						</div>
 						
 					</div>
 					

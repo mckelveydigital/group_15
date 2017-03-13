@@ -1,10 +1,15 @@
 <?php
+	
+	// Include slim.php file
 	require	'Slim/Slim.php';	
 	
+	// Initiate slim framework
 	\Slim\Slim::registerAutoloader();
 		
+	// Use the slim framework
 	use	Slim\Slim;
-			
+	
+	
 	$app = new Slim();
 	$app->get('/', 'getHome');
 	$app->get('/admin', 'getAdmin');
@@ -93,7 +98,7 @@
 	
 	function getTeamPlayers($team_id){
 		
-		$sql = "select * FROM player WHERE team_id=" . $team_id;
+		$sql = "select * FROM player WHERE team_id=" . $team_id . " ORDER BY shirt_number";
 		
 		try{
 			
