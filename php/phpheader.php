@@ -16,19 +16,23 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Link to compiled stylesheet -->
-<link rel="stylesheet" href="css/style.css?random=<?php echo uniqid(); ?>"/>
+<link rel="stylesheet" href="../css/style.css?random=<?php echo uniqid(); ?>"/>
 
 </head>
 
 <body>
-
+	
 <div id="home_top" class="top_image">
 	
-	<a href="<?php echo $base_url . "/code/university/group_15/";?>">
+	<div class="top_image_inner">
+		
+		<a href="<?php echo $base_url . "/code/university/group_15/";?>">
 			
-		<img src="img/champions-league-logo.png" width="200px"/>
-	
-	</a>
+			<img src="../img/champions-league-logo.png" width="200px"/>
+		
+		</a>
+		
+	</div>
 	
 	<div id="menu_bar">
 		
