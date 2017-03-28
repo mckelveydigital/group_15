@@ -1,50 +1,62 @@
-<section id="ticker">
+<section *ngIf="news?.length > 0" id="ticker" >
 
+  <div id="ticker_row" class="row no-margin">
 
+    <div class="left_gradient"></div>
 
+    <div class="col-md-1 sslogo no-padding">
 
+        <div class="sslogo-inner text-center">
 
-<div class="row no-margin">
+          <img src="assets/img/skySportsLogo.jpg" height="65px;">
 
-<div class="col-md-1 sslogo no-padding">
-    <div class="sslogo-inner text-center">
-  <img src="assets/img/skySportsLogo.jpg" height="65px;">
+        </div>
+
     </div>
-</div>
 
+    <div class="col-md-11 no-padding">
 
+      <div class="ticker-container">
 
+        <div class="mask">
 
-<div class="col-md-11 no-padding">
-  <div class="ticker-container">
-    <div class="mask">
-        <ul id="webticker">
-            <li class="spacing"><div class="space"></div></li>
-            <li><i class="fa fa-newspaper-o"></i> This List Item will scroll infintely</li>
+            <ul id="webticker">
+
+                <li *ngFor="let item of news">
+
+                  <a href="{{item[3]}}" target="_blank">
+                    <i class="fa fa-newspaper-o"></i> {{item[1]}} <span class="space"></span>
+                  </a>
+
+                </li>
            
-            <li class="spacing"><div class="space"></div></li>
-            <li><i class="fa fa-newspaper-o"></i> And this one will follow it</li>
-           
-            <li class="spacing"><div class="space"></div></li>
-            <li class="last"><i class="fa fa-newspaper-o"></i> Finally when it goes out of screen, it will queue again at the end</li>
-       
-        </ul>
-        <span class="tickeroverlay-left">&nbsp;</span>
-        <span class="tickeroverlay-right">&nbsp;</span>
+            </ul>
+
+            <span class="tickeroverlay-left">&nbsp;</span>
+
+            <span class="tickeroverlay-right">&nbsp;</span>
+
+        </div>
+
+      </div>
+
     </div>
-  </div>
-</div>
-</div>
 
-<div class="ticker-click">
-  <div class="ticker-click-inner text-center">
-    Click to read more of our news stories
-  </div>
-</div>
+    <div class="right_gradient"></div>
 
+  </div>
+
+  <div class="ticker-click">
+
+    <div class="ticker-click-inner text-center">
+
+     <i class="fa fa-hand-o-up" aria-hidden="true"></i> Click to read more of our news stories
+
+    </div>
+
+  </div>
 
 </section>
-
 
 <section id="next-match">
 
