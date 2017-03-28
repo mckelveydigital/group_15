@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { TeamsContentService } from './teams-content.service';
 
-describe('TeamsService', () => {
+describe('TeamsContentService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [TeamsContentService]
