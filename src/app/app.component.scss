@@ -35,6 +35,9 @@ $darkgrey: #2c2e2f;
 $transgrey: rgba(37, 37, 37, 0.4);
 $bgColour2: #f7f7f6;
 $yellow: #f2c807;
+$skysportsblue: #2e65b0;
+$indianred:#D66060;
+
 
 body{
 	background-color: $white;
@@ -459,10 +462,69 @@ opacity: 0.8;
 }
 
 .ticker-container{
-    background-color: #c1c1c1;
-    position: absolute;
+    background-color: $skysportsblue;
     left: 0;
     right: 0;
 	height: 75px;
     overflow: hidden;
 }
+
+ul#webticker{
+	font-size: 18px !important;
+	color: #ffffff;
+	font-weight: normal !important;
+	li{
+		@include transition(500ms);
+		&:hover{
+			font-size: 22px !important;
+			cursor: pointer;
+		}
+	}
+}
+
+// .ticker-spacer{
+// 	padding-left: 40px !important;
+// 	padding-right: 40px !important;
+// }
+
+.spacing{
+	.space{
+	width: 50px;
+	height:75px;
+	// background-color: white;
+	display: block;
+	}
+}
+
+.ticker-click{
+	height: 40px;
+	width: 100%;
+	display: table;
+	background-color: $indianred;
+	color: #ffffff;
+	.ticker-click-inner{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.sslogo{
+	background-color: $skysportsblue;
+	display: table;
+	height: 75px;
+	.sslogo-inner{
+		display: table-cell;
+		vertical-align: top;
+		width: 100%;
+	img{	
+		display: block;
+		margin: auto;
+		}
+	}
+}
+
+.no-margin{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
