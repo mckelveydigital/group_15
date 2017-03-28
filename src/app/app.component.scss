@@ -457,3 +457,12 @@ background-repeat: no-repeat;
 background-position: center center;
 opacity: 0.8;
 }
+
+.ticker-container{
+    background-color: #c1c1c1;
+    position: absolute;
+    left: 0;
+    right: 0;
+	height: 75px;
+    overflow: hidden;
+}
