@@ -22,7 +22,7 @@ export class HomeContentService {
   constructor(private http: Http) { 
 
     // Get all teams api url
-    this.newsApiUrl = `https://newsapi.org/v1/articles?source=sky-sports-news&sortBy=top&apiKey=168a6b3f14cd45d6bbf7b9d405047fde&callback=JSONP_CALLBACK`;
+    this.newsApiUrl = ` https://newsapi.org/v1/articles?source=four-four-two&sortBy=top&apiKey=168a6b3f14cd45d6bbf7b9d405047fde&callback=JSONP_CALLBACK`;
 
   }
 
