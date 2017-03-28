@@ -9,7 +9,6 @@ body {
 
 
 
-
 body {
   background-color: #ffffff;
   color: #2c2e2f;
@@ -27,6 +26,55 @@ form .form-row {
     display: block;
     margin: auto;
     margin-right: 0; }
+
+.home-team-name, .home-team-name h1{
+  font-size: 40px;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: -1px;
+}
+
+.home-team-name p{
+  font-size: 24px;
+  letter-spacing: -1px;
+  font-weight: 400;
+  font-variant: normal;
+}
+
+.offset-md-left{
+  margin-left: 240px;
+}
+
+hr{
+  border-bottom: 1px solid black;
+}
+
+section#social-media{
+  width: 100%;
+  height: 100vh;
+  }
+
+section#social-media h1{
+  font-size: 40px;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+
+
+  .bg-img{
+    background-image: url(../assets/img/bottom.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.8;
+  }
+
+
+
+
+
 
 #map {
   height: 300px;

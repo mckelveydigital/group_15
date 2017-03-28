@@ -11,6 +11,8 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamsContentComponent } from './teams-content/teams-content.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { HomeComponent } from './home/home.component';
+import { HomeContentComponent } from './home-content/home-content.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     HeaderComponent,
     TournamentComponent,
     TeamsComponent,
-    TeamsContentComponent
+    TeamsContentComponent,
+    HomeComponent,
+    HomeContentComponent,
   ],
   imports: [
     BrowserModule,
