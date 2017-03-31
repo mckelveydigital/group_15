@@ -19,6 +19,8 @@ import { LastSixteenComponent } from './last-sixteen/last-sixteen.component';
 import { QuarterFinalComponent } from './quarter-final/quarter-final.component';
 import { SemiFinalComponent } from './semi-final/semi-final.component';
 import { FinalComponent } from './final/final.component';
+import { TournamentContentComponent } from './tournament-content/tournament-content.component';
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { FinalComponent } from './final/final.component';
     QuarterFinalComponent,
     SemiFinalComponent,
     FinalComponent,
+    TournamentContentComponent,
   ],
   imports: [
     BrowserModule,

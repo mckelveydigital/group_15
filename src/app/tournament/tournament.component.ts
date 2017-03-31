@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TournamentContentComponent } from '../tournament-content/tournament-content.component';
 
 @Component({
   selector: 'app-tournament',

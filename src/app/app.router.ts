@@ -24,11 +24,11 @@ export const router: Routes = [
     { path: 'teams', component: TeamsComponent },
     { path: 'tournament', component: TournamentComponent },
     { path: 'teams/:id', component: TeamsDetailsComponent },
-    { path: 'teams-details/:id', component: GroupStageComponent },
-    { path: 'teams-details/:id', component: LastSixteenComponent },
-    { path: 'teams-details/:id', component: QuarterFinalComponent },
-    { path: 'teams-details/:id', component: SemiFinalComponent },
-    { path: 'teams-details/:id', component: FinalComponent },
+    { path: 'tournament/group-stage', component: GroupStageComponent },
+    { path: 'tournament/last-sixteen', component: LastSixteenComponent },
+    { path: 'tournament/quarter-final', component: QuarterFinalComponent },
+    { path: 'tournament/semi-final', component: SemiFinalComponent },
+    { path: 'tournament/final', component: FinalComponent },
     
 ];
 
