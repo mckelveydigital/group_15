@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { HomeComponent } from './home/home.component';
+import { TeamsDetailsComponent } from './teams-details/teams-details.component';
+
 
 
 
@@ -13,6 +15,7 @@ export const router: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'teams', component: TeamsComponent },
     { path: 'tournament', component: TournamentComponent },
+    { path: 'teams-details/:id', component: TeamsDetailsComponent }
     
 ];
 

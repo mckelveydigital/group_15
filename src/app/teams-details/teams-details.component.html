@@ -1,0 +1,142 @@
+<!-- If the team variable has a length greater than 0 then output this div to screen. Add a class with the team name for colour styling and a class of hide if the teamsNotVisible vairable is set to false. -->
+<div *ngIf="team?.length > 0" id="team_holder" class="{{team[0].logo_path}}" [ngClass]="{'hide': teamsNotVisible }">
+
+	<!-- A simple back button so the user can naviagte back to the teams section -->
+	<a href="#" (click)="backButton($event)">Back</a>
+
+	<div class="jumbotron">
+		
+		<div class="container">
+			
+			<!-- Team container -->
+			<div id="team" class="row">
+	
+				<div class="col-md-8">
+					
+					<div class="row">
+
+						<div class="col-md-2">
+							
+							<!-- Show the team's badge -->
+							<img src="img/{{team[0].logo_path}}.png" width="100%"/>
+							
+						</div>
+
+						<div class="col-md-10">
+							
+							<!-- Show the team's name, league and mascot -->
+							<h1>{{team[0].name}}</h1>
+
+							<h3>{{team[0].league}}</h3>
+
+							<p>Mascot : {{team[0].mascot}}</p>
+
+						</div>
+	
+					</div>
+					
+					<div class="row">
+							
+						<div class="col-md-12">
+							
+							<!-- Show the team's description -->
+							<p>{{team[0].description}}</p>
+							
+						</div>
+					
+					</div>
+					
+				</div>
+				
+				<div class="col-md-4">
+					
+					<div class="row">
+						
+						<div class="col-md-12 text-right">
+							
+							<!-- Show the team's stadium details -->
+							<h3>{{stadium[0].name}}</h3>
+							<p>Capacity: {{stadium[0].capacity}}</p>
+							<p>Opened: {{stadium[0].date_opened}}</p>
+							<p>Location: {{stadium[0].city}}, {{stadium[0].country}}</p>
+
+							<!-- Show the team's manager details -->
+							<h3>Manager</h3>
+							<p>{{manager[0].first_name}} {{manager[0].last_name}}</p>
+
+						</div>
+					
+					</div>
+					
+				</div>
+				 
+				<!-- Output a google map with the team's stadium coordinates as the center point -->
+				<sebm-google-map id="map" [styles]="styles" [scrollwheel]="false" [zoom]="15" [latitude]="lat" [longitude]="lng">
+
+					<!-- Put a custom marker on the map at the stadium location -->
+					<sebm-google-map-marker [iconUrl]="marker" [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+
+				</sebm-google-map>
+
+			</div>
+		
+		</div>
+		
+	</div>
+
+	<div id="players_holder" class="jumbotron">
+		
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="col-md-12 margin-top">
+							
+					<div class="row">
+						
+						<div class="col-md-12">
+							
+							<h2>Players</h2>
+							
+							<p>Click on a player for more info.</p>
+						</div>
+						
+						<div id="team_players" class="row margin-top">
+							
+							<!-- Loop through all the players and output each players information -->
+							<div *ngFor="let player of players" id="{{player.last_name}}" class="col-md-3 player">
+
+								<div class="player_inner">
+
+									<div class="col-md-12 player_number">
+
+										<!-- Custom football shirt svg that displays the player's shirt number -->
+										<svg class="player_shirt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.13 275.09"><defs><style>.cls-1{font-size:112px;fill:#fff;font-family:Myriad Pro;}</style></defs><title>shirt</title><path d="M289.83,223.83c3.09,0.62,8.72,4.22,10.52,6.7a115.32,115.32,0,0,1,7.54,11.09c5.23,9.25,10,18.77,15.27,28,8.2,14.37,16.67,28.58,25,42.86,0.4,0.69.83,1.37,1.24,2.05,2.29,3.83,1.6,4.39-3.45,9.92-11,8.88-23.55,14.9-37,19a22.27,22.27,0,0,1-4.24.69,4.25,4.25,0,0,1-4.49-2.46c-3.35-5.91-6.82-11.75-10.29-17.6-1.43-2.4-3-4.75-4.47-7.1a18.14,18.14,0,0,0-1.43-1.66c-0.18,1.06-.36,1.74-0.39,2.44-0.37,7.43-.83,14.85-1,22.28-0.42,15.43-.8,30.86-1,46.29-0.28,18.63-.32,37.27.48,55.89q0.73,17.22,2.2,34.41c2.67,8.19,1.66,12.44-4.85,15A42.16,42.16,0,0,1,268.23,494c-10.6,1-21.24,1-31.88.95-21.52,0-43,0-64.55-.13-7.1-.05-14.24-0.25-21.22-1.81a31.81,31.81,0,0,1-7-2.4c-3.21-1.57-4.57-4.36-4.07-7.94s1.3-7.41,1.62-11.14c0.74-8.84,1.59-17.69,1.82-26.55,0.43-16.47.69-32.95,0.58-49.42-0.14-19.91-.7-39.82-1.16-59.72-0.13-5.67-.53-11.34-0.84-17-0.07-1.28-.36-2.54-0.46-3.82-0.88,1.35.11,1.28,0,0-0.88,1.35-1.91,2.62-2.74,4q-6.52,10.91-13,21.86c-2,3.36-3.15,3.91-7.06,3.16a64.53,64.53,0,0,1-14-4.81c-7.46-3.31-14.8-6.85-21.36-11.78a72.9,72.9,0,0,1-5.76-5.06,13.7,13.7,0,0,1-1.76-2.26,4.16,4.16,0,0,1,0-5.09c4.19-6.71,8.24-13.52,12.34-20.28,9.28-15.32,17.48-31.25,26-47,2.67-4.91,5.75-9.59,8.72-14.33a28.85,28.85,0,0,1,2.86-3.54,10.91,10.91,0,0,1,6.32-3.59c10.51-2.1,10.51-2.1,25.47-5a202,202,0,0,1,26.36.51c9.09,1,16.67,3.26,26.67,3.25a148.7,148.7,0,0,0,30.58-3c6.77-1.5,4.72-.48,17.25-1.5,10.5-.85,5.5-0.85,16.37-0.22" transform="translate(-74.54 -219.83)"/><text class="cls-1 player_number" transform="translate(135 117.12)" text-anchor="middle">{{player.shirt_number}}</text></svg>
+									</div>
+
+									<div class="col-md-12 player_info">
+
+										<!-- Display the player's name -->
+										<p class="player_name">{{player.first_name}} {{player.last_name}}</p>
+										<!-- Display the player's position -->
+										<p class="player_position">{{player.position}}</p>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+						
+					</div>
+					
+				</div>
+		
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>

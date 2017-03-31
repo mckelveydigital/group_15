@@ -13,6 +13,12 @@ import { TeamsContentComponent } from './teams-content/teams-content.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { HomeComponent } from './home/home.component';
 import { HomeContentComponent } from './home-content/home-content.component';
+import { TeamsDetailsComponent } from './teams-details/teams-details.component';
+import { GroupStageComponent } from './group-stage/group-stage.component';
+import { LastSixteenComponent } from './last-sixteen/last-sixteen.component';
+import { QuarterFinalComponent } from './quarter-final/quarter-final.component';
+import { SemiFinalComponent } from './semi-final/semi-final.component';
+import { FinalComponent } from './final/final.component';
 
 
 @NgModule({
@@ -24,6 +30,12 @@ import { HomeContentComponent } from './home-content/home-content.component';
     TeamsContentComponent,
     HomeComponent,
     HomeContentComponent,
+    TeamsDetailsComponent,
+    GroupStageComponent,
+    LastSixteenComponent,
+    QuarterFinalComponent,
+    SemiFinalComponent,
+    FinalComponent,
   ],
   imports: [
     BrowserModule,
