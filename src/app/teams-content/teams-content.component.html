@@ -24,23 +24,23 @@
 		<div id="all_teams" class="row">
 			
 			<!-- Loop though each team, when clicked trigger the 'clicked' function in the component -->
-			<div *ngFor="let item of teams" id="{{item[0]}}" class="col-md-4 team" (click)="clicked($event)">
+			<div *ngFor="let team of teams" id="{{team.id}}" class="col-md-4 team" (click)="clicked($event)">
 
 				<div class="team_inner">
 
 					<!-- Display the current team's badge -->
 					<div class="col-md-12 team_badge">
 
-						<img src="./assets/img/{{item[6]}}.png" height="63px"/>
+						<img src="./assets/img/{{team.logo_path}}.png" height="63px"/>
 
 					</div>
 
 					<!-- Display the current team's name and league -->
 					<div class="col-md-12 team_info">
 
-						<p class="team_name">{{item[1]}}</p>
+						<p class="team_name">{{team.name}}</p>
 
-						<p class="team_league">{{item[4]}}</p>
+						<p class="team_league">{{team.league}}</p>
 
 					</div>
 

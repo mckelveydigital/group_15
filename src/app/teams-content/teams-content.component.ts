@@ -94,8 +94,8 @@ export class TeamsContentComponent implements OnInit {
       val => {
 
         // Convert the returned object of teams to an array for use in the template
-        this.teams = this.teamsContentService.convertJson(val)
-
+        this.teams = this.teamsContentService.convertJson(val),
+        console.log(this.teams)
       },
 
       // Error handling

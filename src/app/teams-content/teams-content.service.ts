@@ -84,15 +84,15 @@ export class TeamsContentService {
     for (var x in val.team) {
 
       // Create empty array variable to store the nested data
-      var currentTeam = [];
+      var currentTeam = val.team[x];
 
-      // Loop through the nested data
-      for (var i in val.team[x]) {
+      // // Loop through the nested data
+      // for (var i in val.team[x]) {
 
-        // Push the nested data to the empty array
-        currentTeam.push(val.team[x][i]);
+      //   // Push the nested data to the empty array
+      //   currentTeam.push(val.team[x][i]);
 
-      }
+      // }
 
       // Push the array to a holding array
       outputData.push(currentTeam);
