@@ -15,7 +15,7 @@ export const router: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'teams', component: TeamsComponent },
     { path: 'tournament', component: TournamentComponent },
-    { path: 'teams-details/:id', component: TeamsDetailsComponent }
+    { path: 'teams/:id', component: TeamsDetailsComponent }
     
 ];
 

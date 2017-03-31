@@ -1,89 +1,82 @@
 <!-- If the team variable has a length greater than 0 then output this div to screen. Add a class with the team name for colour styling and a class of hide if the teamsNotVisible vairable is set to false. -->
 <div *ngIf="team?.length > 0" id="team_holder" class="{{team[0].logo_path}}" [ngClass]="{'hide': teamsNotVisible }">
 
-	<!-- A simple back button so the user can naviagte back to the teams section -->
-	<a href="#" (click)="backButton($event)">Back</a>
+	<div class="container pt-5 pb-5">
 
-	<div class="jumbotron">
-		
-		<div class="container">
-			
-			<!-- Team container -->
-			<div id="team" class="row">
-	
-				<div class="col-md-8">
-					
-					<div class="row">
+		<!-- Team container -->
+		<div id="team" class="row">
 
-						<div class="col-md-2">
-							
-							<!-- Show the team's badge -->
-							<img src="img/{{team[0].logo_path}}.png" width="100%"/>
-							
-						</div>
+			<div class="col-md-8">
+				
+				<div class="row">
 
-						<div class="col-md-10">
-							
-							<!-- Show the team's name, league and mascot -->
-							<h1>{{team[0].name}}</h1>
-
-							<h3>{{team[0].league}}</h3>
-
-							<p>Mascot : {{team[0].mascot}}</p>
-
-						</div>
-	
+					<div class="col-md-2">
+						
+						<!-- Show the team's badge -->
+						<img src="./assets/img/{{team[0].logo_path}}.png" width="100%"/>
+						
 					</div>
-					
-					<div class="row">
-							
-						<div class="col-md-12">
-							
-							<!-- Show the team's description -->
-							<p>{{team[0].description}}</p>
-							
-						</div>
-					
+
+					<div class="col-md-10">
+						
+						<!-- Show the team's name, league and mascot -->
+						<h1>{{team[0].name}}</h1>
+
+						<h3>{{team[0].league}}</h3>
+
+						<p>Mascot : {{team[0].mascot}}</p>
+
 					</div>
-					
+
 				</div>
 				
-				<div class="col-md-4">
-					
-					<div class="row">
+				<div class="row">
 						
-						<div class="col-md-12 text-right">
-							
-							<!-- Show the team's stadium details -->
-							<h3>{{stadium[0].name}}</h3>
-							<p>Capacity: {{stadium[0].capacity}}</p>
-							<p>Opened: {{stadium[0].date_opened}}</p>
-							<p>Location: {{stadium[0].city}}, {{stadium[0].country}}</p>
-
-							<!-- Show the team's manager details -->
-							<h3>Manager</h3>
-							<p>{{manager[0].first_name}} {{manager[0].last_name}}</p>
-
-						</div>
-					
+					<div class="col-md-12">
+						
+						<!-- Show the team's description -->
+						<p>{{team[0].description}}</p>
+						
 					</div>
-					
+				
 				</div>
-				 
-				<!-- Output a google map with the team's stadium coordinates as the center point -->
-				<sebm-google-map id="map" [styles]="styles" [scrollwheel]="false" [zoom]="15" [latitude]="lat" [longitude]="lng">
-
-					<!-- Put a custom marker on the map at the stadium location -->
-					<sebm-google-map-marker [iconUrl]="marker" [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-
-				</sebm-google-map>
-
+				
 			</div>
-		
-		</div>
-		
-	</div>
+			
+			<div class="col-md-4">
+				
+				<div class="row">
+					
+					<div class="col-md-12 text-right">
+						
+						<!-- Show the team's stadium details -->
+						<h3>{{stadium[0].name}}</h3>
+						<p>Capacity: {{stadium[0].capacity}}</p>
+						<p>Opened: {{stadium[0].date_opened}}</p>
+						<p>Location: {{stadium[0].city}}, {{stadium[0].country}}</p>
 
+						<!-- Show the team's manager details -->
+						<h3>Manager</h3>
+						<p>{{manager[0].first_name}} {{manager[0].last_name}}</p>
+
+					</div>
+				
+				</div>
+				
+			</div>
+			 
+			<!-- Output a google map with the team's stadium coordinates as the center point -->
+			<sebm-google-map id="map" [styles]="styles" [scrollwheel]="false" [zoom]="15" [latitude]="lat" [longitude]="lng">
+
+				<!-- Put a custom marker on the map at the stadium location -->
+				<sebm-google-map-marker [iconUrl]="marker" [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+
+			</sebm-google-map>
+
+		</div>
+	
+	</div>
+	
 	<div id="players_holder" class="jumbotron">
 		
 		<div class="container">
