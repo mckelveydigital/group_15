@@ -58,8 +58,7 @@
 
 </section>
 
-
-<section id="next-match">
+<section *ngIf="match.homeTeam?.length > 0" id="next-match" >
 
     <div class="container-fluid">
 
@@ -69,7 +68,7 @@
 
           <h1 class="mt-5 mb-1 text-center">NEXT MATCH</h1>
 
-          <p class="mb-4 text-center">Semi-Final First Leg</p>
+          <p class="mb-4 text-center">{{match.match[0].stage}}</p>
 
           <hr class="col-md-4 mb-4">
 
@@ -79,11 +78,11 @@
 
           <div class="row">
 
-            <div class="col-md-9 text-right">real madrid</div>
+            <div class="col-md-9 text-right">{{match.homeTeam[0].name}}</div>
 
             <div class="col-md-3 text-right">
 
-              <img src="../assets/img/realmadrid.png" width="80" height="80"/>
+              <img src="../assets/img/{{match.homeTeam[0].logo_path}}.png" width="80" height="80"/>
 
             </div>
 
@@ -103,11 +102,11 @@
 
             <div class="col-md-3 text-left">
 
-              <img src="../assets/img/bayernmunich.png" width="80" height="80"/>
+              <img src="../assets/img/{{match.awayTeam[0].logo_path}}.png" width="80" height="80"/>
 
             </div>
 
-            <div class="col-md-9 text-left">bayern munich</div>
+            <div class="col-md-9 text-left">{{match.awayTeam[0].name}}</div>
 
           </div>
 
@@ -117,8 +116,8 @@
 
             <hr class="col-md-4 mt-4">
 
-            <p class="mt-4 mb-0 text-center">Bernabeau Stadium</p>
-            <p class="mt-1 mb-0 text-center">02/04/2017</p>
+            <p class="mt-4 mb-0 text-center">{{match.stadium[0].name}}</p>
+            <p class="mt-1 mb-0 text-center">{{match.match[0].date}}</p>
 
             <h1 class="text-center mb-5">19:45</h1>
 
