@@ -1,7 +1,7 @@
 <?php 
 
 	$dbhost = "localhost";
-	$dbuser = "B00550000";
-	$dbpass = "*********";
-	$dbname = "B00550000";
+	$dbuser = "root";
+	$dbpass = "pa5up8ER!";
+	$dbname = "group_!5";
 ?>
