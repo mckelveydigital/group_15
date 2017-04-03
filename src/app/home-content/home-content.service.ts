@@ -14,16 +14,27 @@ export class HomeContentService {
 
   // Initialise variables
   private newsApiUrl: string;
+  private nextApiUrl: string;
+
   public theresult;
   public newsJson;
+  public nextresult;
   result: Object;
 
+  
+  public hometeamJson;
+  public awayteamsJson;
+  public stadiumJson;
+  public matchJson;
+  public refJson;
+
+
   // Constructor function using JsonP
-  constructor(private http: Http) { 
+  constructor(private http: Http, private jsonp: Jsonp) { 
 
     // Get all teams api url
     this.newsApiUrl = ` https://newsapi.org/v1/articles?source=four-four-two&sortBy=top&apiKey=168a6b3f14cd45d6bbf7b9d405047fde&callback=JSONP_CALLBACK`;
-
+    this.nextApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/matches/next`;
   }
 
   // Get all teams from external api
@@ -44,6 +55,7 @@ export class HomeContentService {
     return body;
 
   }
+
 
   // Handle any errors returned from the api call
   private handleError (error: any) {
@@ -86,3 +98,5 @@ export class HomeContentService {
   }
 
 }
+
+

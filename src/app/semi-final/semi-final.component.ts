@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-semi-final',
   templateUrl: './semi-final.component.html',
-  styleUrls: ['./semi-final.component.scss']
+  styleUrls: ['../app.component.scss']
 })
 export class SemiFinalComponent implements OnInit {
 

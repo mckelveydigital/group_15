@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-quarter-final',
   templateUrl: './quarter-final.component.html',
-  styleUrls: ['./quarter-final.component.scss']
+  styleUrls: ['../app.component.scss']
 })
 export class QuarterFinalComponent implements OnInit {
 
