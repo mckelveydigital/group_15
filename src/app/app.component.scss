@@ -97,6 +97,10 @@ form{
 			position: relative;
 			height: 200px;
 			display: table;
+			a{
+				color: $darkgrey;
+				text-decoration: none;
+			}
 			.team_inner{
 				background-color: $white;
 				position: relative;
@@ -437,6 +441,7 @@ form{
   font-size: 40px;
   font-weight: 700;
   font-variant: small-caps;
+  text-transform: lowercase;
   letter-spacing: -1px;
 }
 

@@ -26,6 +26,7 @@
 			<!-- Loop though each team, when clicked trigger the 'clicked' function in the component -->
 			<div *ngFor="let team of teams" id="{{team.id}}" class="col-md-4 team">
 
+		<a [routerLink]="['/teams', team.id]">
 				<div class="team_inner">
 
 					<!-- Display the current team's badge -->
@@ -49,13 +50,14 @@
 
 						<div class="more_inner">
 
-							<a [routerLink]="['/teams', team.id]"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a>
+							<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
 
 						</div>
 
 					</div>
 
 				</div>
+			</a>
 
 			</div>
 
