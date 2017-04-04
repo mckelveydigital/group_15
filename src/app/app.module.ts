@@ -20,6 +20,12 @@ import { QuarterFinalComponent } from './quarter-final/quarter-final.component';
 import { SemiFinalComponent } from './semi-final/semi-final.component';
 import { FinalComponent } from './final/final.component';
 import { TournamentContentComponent } from './tournament-content/tournament-content.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminCreateComponent } from './admin-create/admin-create.component';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminContentComponent } from './admin-content/admin-content.component';
 
 
 
@@ -39,6 +45,12 @@ import { TournamentContentComponent } from './tournament-content/tournament-cont
     SemiFinalComponent,
     FinalComponent,
     TournamentContentComponent,
+    FooterComponent,
+    AdminComponent,
+    AdminCreateComponent,
+    AdminUpdateComponent,
+    AdminDeleteComponent,
+    AdminContentComponent,
   ],
   imports: [
     BrowserModule,

@@ -97,6 +97,10 @@ form{
 			position: relative;
 			height: 200px;
 			display: table;
+			a{
+				color: $darkgrey;
+				text-decoration: none;
+			}
 			.team_inner{
 				background-color: $white;
 				position: relative;
@@ -442,6 +446,7 @@ form{
   font-size: 40px;
   font-weight: 700;
   font-variant: small-caps;
+  text-transform: lowercase;
   letter-spacing: -1px;
 }
 
@@ -666,4 +671,30 @@ ul#webticker{
 	.list-group-item{
 		background-color: $skysportsblue;
 		color:white;
+	}
+
+	footer{
+		background-color: $black;
+		ul{
+			margin: 0;
+		}
+		li{
+			list-style: none;
+			margin: 0px 20px;
+			display: inline-block;
+			font-size: 20px;
+			a{
+				text-decoration: none;
+			}
+		}
+		.links{
+			height: 50px;
+			display: table;
+			width: 100%;
+			.links-inner{
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+
 	}
