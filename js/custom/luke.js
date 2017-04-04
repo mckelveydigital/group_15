@@ -1,3 +1,3 @@
-$(document).ready(function(){
-	console.log("This is working");
-}); 
+$(document).on('click', '.match', function(){
+	$(this).toggleClass("on");
+});

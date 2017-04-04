@@ -139,7 +139,12 @@ form{
 		}
 	}
 }
-
+.Yellow_card{
+	color:yellow;
+}
+.Red_card{
+	color:red;
+}
 .top_image{
 	width: 100%;
 	height: 400px;
@@ -566,6 +571,32 @@ ul#webticker{
 		width: 100px;
 		z-index: 100;
 		@include leftGradient();
+	}
+}
+
+.match{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	cursor: pointer;
+	background-color: transparent;
+	@include transition(500ms);
+	.more_details{
+		height: auto;
+		max-height: 0px;
+		overflow: hidden;
+		opacity: 0;
+		@include transition(500ms);
+	}
+	&.on{
+		background-color: #f2f2f2;
+		.more_details{
+			margin-top: 40px;
+			opacity: 1;
+			max-height: 100%;
+		}
+	}
+	&:hover{
+		background-color: #f2f2f2;
 	}
 }
 

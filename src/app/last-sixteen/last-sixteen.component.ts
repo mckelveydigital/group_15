@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './last-sixteen.component.html',
   styleUrls: ['../app.component.scss']
 })
+
 export class LastSixteenComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

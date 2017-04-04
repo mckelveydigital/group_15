@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { HomeContentService } from './home-content.service'
+import { HomeContentService } from './home-content.service';
 declare var jQuery:any;
  
 @Component({
