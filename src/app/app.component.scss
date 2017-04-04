@@ -625,3 +625,14 @@ ul#webticker{
 		.no-padding{
 			padding: 0 !important;
 		}
+
+	.tournament-home, .home-goal, .away-goal, .tournament-away{
+			font-size: 20px;
+			font-weight: bolder;
+			font-variant: small-caps;
+		}
+
+	.list-group-item{
+		background-color: $skysportsblue;
+		color:white;
+	}
