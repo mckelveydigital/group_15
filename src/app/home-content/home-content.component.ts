@@ -12,6 +12,7 @@ declare var jQuery:any;
 export class HomeContentComponent implements OnInit {
 
 	news = new Array();
+  match = new Array();
 	errorMessage = "";
 
   constructor(private homeContentService:HomeContentService) { } 
@@ -26,12 +27,31 @@ export class HomeContentComponent implements OnInit {
       val => {
 
         // Convert the returned object of teams to an array for use in the template
-        this.news = this.homeContentService.convertJson(val),
-        console.log(this.news);
+        this.news = this.homeContentService.convertJson(val)
+
       },
 
       // Error handling
-      error => this.errorMessage = error,);
+      error => this.errorMessage = error,
+
+    );
+
+    this.homeContentService.getNextMatch().subscribe(
+
+      // Get the returned values from the next match api call
+      val => {
+
+        // Convert the returned object to an array for use in the template
+        this.match = val,
+
+        console.log(this.match);
+
+      },
+
+      // Error handling
+      error => this.errorMessage = error,
+
+    );
 
   } 
 

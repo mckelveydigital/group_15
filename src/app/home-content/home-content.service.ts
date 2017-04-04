@@ -34,7 +34,7 @@ export class HomeContentService {
 
     // Get all teams api url
     this.newsApiUrl = ` https://newsapi.org/v1/articles?source=four-four-two&sortBy=top&apiKey=168a6b3f14cd45d6bbf7b9d405047fde&callback=JSONP_CALLBACK`;
-    this.nextApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/matches/next`;
+    this.nextApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/matches/next?callback=JSONP_CALLBACK`;
   }
 
   // Get all teams from external api
@@ -46,6 +46,17 @@ export class HomeContentService {
     .catch(this.handleError);
 
     return this.theresult;
+  }
+
+  // Get all teams from external api
+  getNextMatch() : Observable<any> {
+
+    // Store the returned data in theresult variable
+    this.nextresult = this.jsonp.get(this.nextApiUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+    return this.nextresult;
+
   }
 
   // Get json data from api returned data
