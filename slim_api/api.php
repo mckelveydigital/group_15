@@ -37,6 +37,15 @@
 	// Url extension to return the next upcoming match, runs the getNextMatch() function.
 	$app->get('/matches/next','getNextMatch');
 
+	//Url extension to return the matches and relevant data for the quarter final stage.
+	$app->get('/matches/quarter-final', 'getQuarterFinal');
+	
+	//Url extension to return the matches and relevant data for the quarter final stage.
+	$app->get('/matches/semi-final', 'getSemiFinal');
+	
+	//Url extension to return the matches and relevant data for the quarter final stage.
+	$app->get('/matches/final', 'getFinal');
+
 	$app->run();	
 	
 	// Function to get the database connection.
@@ -98,6 +107,322 @@
 			// Convert the response to json format and return it with a 200 success status code.
 			responseJson($_GET['callback'] . '({"matches":'.json_encode($matches).'})', 200);	
 	
+		}catch(PDOException $e){
+			
+			// Handle errors by returning a json response with an error message and a status code of 500.
+			responseJson('{"error":{"text":'.$e->getMessage().'}}', 500);
+			
+		}
+		
+	}
+
+	// Function to return all of the matches in the quarter final and related data.
+	function getQuarterFinal(){
+
+		try{
+			
+			// Create an empty object to hold the match data
+			$matches_holder = array();
+
+			// Open the database connection.
+			$db = getConnection();
+
+			// SQL statement that queries the database for all matches.
+			$sql = "select * FROM game ORDER BY date";
+
+			// Run the SQL query.
+			$stmt = $db->query($sql);
+			
+			// Get the data from the response and save it in a variable.
+			$matches = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			// Loop through all the returned matches.
+			foreach($matches as $match){
+
+				// Search for matches that are in the quarter final stage.
+				if($match->stage === "Quarter Final - Leg 1" || $match->stage === "Quarter Final - Leg 2"){
+
+					// Create some variables to hold the relevant IDs.
+					$homeTeamId = $match->home_id;
+					$awayTeamId = $match->away_id;
+					$refId = $match->referee_id;
+				
+					// Get the stadium the match is played in using the home team's ID.
+					$stadium_sql = "select * FROM stadium WHERE team_id='" . $homeTeamId ."'";
+					
+					$stmt2 = $db->query($stadium_sql);
+					
+					$stadium = $stmt2->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the home team from the database using the home team ID.
+				    $sql3 = "select * FROM team WHERE id='" . $homeTeamId ."'";
+					
+					$stmt3 = $db->query($sql3);
+					
+					$homeTeam = $stmt3->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the away team from the database using the away team ID.
+					$sql4 = "select * FROM team WHERE id='" . $awayTeamId ."'";
+					
+					$stmt4 = $db->query($sql4);
+					
+					$awayTeam = $stmt4->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the referee from the database using the referee ID.
+					$refSql = "select * FROM referee WHERE id='" . $refId ."'";
+					
+					$stmt5 = $db->query($refSql);
+					
+					$referee = $stmt5->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the cards for this match from the database using the match ID.
+					$cardSql = "select * FROM card WHERE game_id='" . $match->id ."'";
+					
+					$stmt6 = $db->query($cardSql);
+					
+					$cards = $stmt6->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the goals for this match from the database using the match ID.
+					$goalSql = "select * FROM goal WHERE game_id='" . $match->id ."'";
+					
+					$stmt7 = $db->query($goalSql);
+					
+					$goals = $stmt7->fetchAll(PDO::FETCH_OBJ);
+
+					$match_details = new stdClass();
+
+					// Add all the returned data into an object called match details.
+					$match_details->match = $match;
+					$match_details->stadium = $stadium;
+					$match_details->home_team = $homeTeam;
+					$match_details->away_team = $awayTeam;
+					$match_details->referee = $referee;
+					$match_details->cards = $cards;
+					$match_details->goals = $goals;
+
+					// Add the current match details to an object contaning all quarter final matches details.
+					array_push($matches_holder, $match_details);
+
+				}
+
+			}
+
+			// Close the connection.
+			$db = null;
+
+			// Convert the response to json format and return it with a 200 success status code.
+			responseJson($_GET['callback'] . '({"matches":'.json_encode($matches_holder).'})', 200);
+
+		}catch(PDOException $e){
+			
+			// Handle errors by returning a json response with an error message and a status code of 500.
+			responseJson('{"error":{"text":'.$e->getMessage().'}}', 500);
+			
+		}
+
+	}
+	
+	function getSemiFinal(){
+		
+		try{
+			
+			// Create an empty object to hold the match data
+			$matches_holder = array();
+
+			// Open the database connection.
+			$db = getConnection();
+
+			// SQL statement that queries the database for all matches.
+			$sql = "select * FROM game ORDER BY date";
+
+			// Run the SQL query.
+			$stmt = $db->query($sql);
+			
+			// Get the data from the response and save it in a variable.
+			$matches = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			// Loop through all the returned matches.
+			foreach($matches as $match){
+
+				// Search for matches that are in the quarter final stage.
+				if($match->stage === "Semi Final - Leg 1" || $match->stage === "Semi Final - Leg 2"){
+
+					// Create some variables to hold the relevant IDs.
+					$homeTeamId = $match->home_id;
+					$awayTeamId = $match->away_id;
+					$refId = $match->referee_id;
+				
+					// Get the stadium the match is played in using the home team's ID.
+					$stadium_sql = "select * FROM stadium WHERE team_id='" . $homeTeamId ."'";
+					
+					$stmt2 = $db->query($stadium_sql);
+					
+					$stadium = $stmt2->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the home team from the database using the home team ID.
+				    $sql3 = "select * FROM team WHERE id='" . $homeTeamId ."'";
+					
+					$stmt3 = $db->query($sql3);
+					
+					$homeTeam = $stmt3->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the away team from the database using the away team ID.
+					$sql4 = "select * FROM team WHERE id='" . $awayTeamId ."'";
+					
+					$stmt4 = $db->query($sql4);
+					
+					$awayTeam = $stmt4->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the referee from the database using the referee ID.
+					$refSql = "select * FROM referee WHERE id='" . $refId ."'";
+					
+					$stmt5 = $db->query($refSql);
+					
+					$referee = $stmt5->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the cards for this match from the database using the match ID.
+					$cardSql = "select * FROM card WHERE game_id='" . $match->id ."'";
+					
+					$stmt6 = $db->query($cardSql);
+					
+					$cards = $stmt6->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the goals for this match from the database using the match ID.
+					$goalSql = "select * FROM goal WHERE game_id='" . $match->id ."'";
+					
+					$stmt7 = $db->query($goalSql);
+					
+					$goals = $stmt7->fetchAll(PDO::FETCH_OBJ);
+
+					$match_details = new stdClass();
+
+					// Add all the returned data into an object called match details.
+					$match_details->match = $match;
+					$match_details->stadium = $stadium;
+					$match_details->home_team = $homeTeam;
+					$match_details->away_team = $awayTeam;
+					$match_details->referee = $referee;
+					$match_details->cards = $cards;
+					$match_details->goals = $goals;
+
+					// Add the current match details to an object contaning all quarter final matches details.
+					array_push($matches_holder, $match_details);
+
+				}
+
+			}
+
+			// Close the connection.
+			$db = null;
+
+			// Convert the response to json format and return it with a 200 success status code.
+			responseJson($_GET['callback'] . '({"matches":'.json_encode($matches_holder).'})', 200);
+
+		}catch(PDOException $e){
+			
+			// Handle errors by returning a json response with an error message and a status code of 500.
+			responseJson('{"error":{"text":'.$e->getMessage().'}}', 500);
+			
+		}
+		
+	}
+	
+	function getFinal(){
+		
+		try{
+			
+			// Create an empty object to hold the match data
+			$matches_holder = array();
+
+			// Open the database connection.
+			$db = getConnection();
+
+			// SQL statement that queries the database for all matches.
+			$sql = "select * FROM game ORDER BY date";
+
+			// Run the SQL query.
+			$stmt = $db->query($sql);
+			
+			// Get the data from the response and save it in a variable.
+			$matches = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			// Loop through all the returned matches.
+			foreach($matches as $match){
+
+				// Search for matches that are in the quarter final stage.
+				if($match->stage === "Final"){
+
+					// Create some variables to hold the relevant IDs.
+					$homeTeamId = $match->home_id;
+					$awayTeamId = $match->away_id;
+					$refId = $match->referee_id;
+				
+					// Get the stadium the match is played in using the home team's ID.
+					$stadium_sql = "select * FROM stadium WHERE team_id='" . $homeTeamId ."'";
+					
+					$stmt2 = $db->query($stadium_sql);
+					
+					$stadium = $stmt2->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the home team from the database using the home team ID.
+				    $sql3 = "select * FROM team WHERE id='" . $homeTeamId ."'";
+					
+					$stmt3 = $db->query($sql3);
+					
+					$homeTeam = $stmt3->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the away team from the database using the away team ID.
+					$sql4 = "select * FROM team WHERE id='" . $awayTeamId ."'";
+					
+					$stmt4 = $db->query($sql4);
+					
+					$awayTeam = $stmt4->fetchAll(PDO::FETCH_OBJ);
+					
+					// Get the referee from the database using the referee ID.
+					$refSql = "select * FROM referee WHERE id='" . $refId ."'";
+					
+					$stmt5 = $db->query($refSql);
+					
+					$referee = $stmt5->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the cards for this match from the database using the match ID.
+					$cardSql = "select * FROM card WHERE game_id='" . $match->id ."'";
+					
+					$stmt6 = $db->query($cardSql);
+					
+					$cards = $stmt6->fetchAll(PDO::FETCH_OBJ);
+
+					// Get the goals for this match from the database using the match ID.
+					$goalSql = "select * FROM goal WHERE game_id='" . $match->id ."'";
+					
+					$stmt7 = $db->query($goalSql);
+					
+					$goals = $stmt7->fetchAll(PDO::FETCH_OBJ);
+
+					$match_details = new stdClass();
+
+					// Add all the returned data into an object called match details.
+					$match_details->match = $match;
+					$match_details->stadium = $stadium;
+					$match_details->home_team = $homeTeam;
+					$match_details->away_team = $awayTeam;
+					$match_details->referee = $referee;
+					$match_details->cards = $cards;
+					$match_details->goals = $goals;
+
+					// Add the current match details to an object contaning all quarter final matches details.
+					array_push($matches_holder, $match_details);
+
+				}
+
+			}
+
+			// Close the connection.
+			$db = null;
+
+			// Convert the response to json format and return it with a 200 success status code.
+			responseJson($_GET['callback'] . '({"matches":'.json_encode($matches_holder).'})', 200);
+
 		}catch(PDOException $e){
 			
 			// Handle errors by returning a json response with an error message and a status code of 500.
