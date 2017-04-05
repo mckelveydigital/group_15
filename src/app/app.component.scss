@@ -584,7 +584,6 @@ ul#webticker{
 	padding-bottom: 20px;
 	cursor: pointer;
 	background-color: transparent;
-	text-transform: lowercase;
 	@include transition(500ms);
 	.more_details{
 		height: auto;
