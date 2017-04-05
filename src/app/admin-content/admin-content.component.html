@@ -16,8 +16,8 @@
 
 		<div class="col-md-6">
 
-			<select class="form-control" id="team_select">
-
+			<select (change)="getTeamData($event.target.value)" class="form-control" id="team_select">
+				<option value="">Please Select a Team...</option>
 				<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
 
 			</select>
@@ -34,7 +34,7 @@
 
 </div>
 
-<div class="bg-dark">
+<div *ngIf="team?.length > 0" class="bg-dark">
 
 	<div class="container mt-5 mb-5">
 
@@ -50,21 +50,21 @@
 					<div class="form-group">
 
 						<label>Team Name</label>
-						<input type="text" class="form-control" name="team_name" value="Leicester City" />
+						<input type="text" class="form-control" name="team_name" value="{{team[0].name}}" />
 
 					</div>
 
 					<div class="form-group">
 
 						<label>Mascot Name</label>
-						<input type="text" class="form-control" name="mascot" value="Frank the Fox" />
+						<input type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
 
 					</div>
 
 					<div class="form-group">
 
 						<label>Description</label>
-						<textarea rows="7" class="form-control">Leicester City Football Club, also known as the Foxes, is an English professional football club based at the King Power Stadium in Leicester. They compete in the Premier League, England's top tier of football, and are the current reigning champions. Having been promoted as champions of the Football League Championship in 2013 14, this signalled a return to the top flight of English football after a decade away.</textarea>
+						<textarea rows="7" class="form-control">{{team[0].description}}</textarea>
 					</div>
 
 					<div class="form-group">
@@ -87,21 +87,21 @@
 					<div class="form-group">
 
 						<label>Stadium Name</label>
-						<input type="text" class="form-control" name="stadium_name" value="King Power Stadium" />
+						<input type="text" class="form-control" name="stadium_name" value="{{stadium[0].name}}" />
 
 					</div>
 
 					<div class="form-group">
 
 						<label>Capacity</label>
-						<input type="number" class="form-control" name="capacity" value="32312" />
+						<input type="number" class="form-control" name="capacity" value="{{stadium[0].capacity}}" />
 
 					</div>
 
 					<div class="form-group">
 
 						<label>Date Opened</label>
-						<input type="date" class="form-control" name="stadium_name" value="2002-07-23" />
+						<input type="date" class="form-control" name="stadium_name" value="{{stadium[0].date_opened}}" />
 
 					</div>
 
@@ -121,7 +121,7 @@
 
 </div>
 
-<div class="container mt-5 mb-5">
+<div *ngIf="manager?.length > 0" class="container mt-5 mb-5">
 
 	<div class="row">
 
@@ -139,7 +139,7 @@
 						<div class="form-group">
 
 							<label>First Name</label>
-							<input type="text" class="form-control" name="manager_first_name" value="Craig" />
+							<input type="text" class="form-control" name="manager_first_name" value="{{manager[0].first_name}}" />
 
 						</div>
 
@@ -150,7 +150,7 @@
 						<div class="form-group">
 
 							<label>Last Name</label>
-							<input type="text" class="form-control" name="manager_last_name" value="Shakespeare" />
+							<input type="text" class="form-control" name="manager_last_name" value="{{manager[0].last_name}}" />
 
 						</div>
 
@@ -161,7 +161,7 @@
 				<div class="form-group">
 
 					<label>Date of Birth</label>
-					<input type="date" class="form-control" name="manager_dob" value="1986-10-26" />
+					<input type="date" class="form-control" name="manager_dob" value="{{manager[0].date_of_birth}}" />
 
 				</div>				
 
@@ -172,34 +172,6 @@
 				</div>
 
 			</form>
-
-		</div>
-
-	</div>
-
-</div>
-
-<div class="bg-dark">
-
-	<div class="container mt-5 mb-5">
-
-		<div class="row">
-
-			<div class="col-md-12">
-
-				<form>
-					
-					<div class="form-group">
-
-						<label>Date of Birth</label>
-
-						<input type="date" class="form-control" name="manager_dob" value="1986-10-26" />
-
-					</div>	
-
-				</form>
-
-			</div>
 
 		</div>
 

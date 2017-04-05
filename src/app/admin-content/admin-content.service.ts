@@ -14,6 +14,7 @@ export class AdminContentService {
 
   // Initialise variables
   private teamsApiUrl: string;
+  private teamApiUrl: string;
   public theresult;
   result: Object;
 
@@ -22,7 +23,7 @@ export class AdminContentService {
 
     // Get all teams api url
     this.teamsApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams?callback=JSONP_CALLBACK`;
-
+    this.teamApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams`;
 
   }
 
@@ -31,6 +32,20 @@ export class AdminContentService {
 
     // Store the returned data in theresult variable
     this.theresult = this.jsonp.get(this.teamsApiUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+
+    return this.theresult;
+  }
+
+  // Get a specific team's data from external api using team id
+  getTeam(id) : Observable<any> {
+
+    // Add the team id to the url
+    var teamUrl = this.teamApiUrl + "/" + id + "?callback=JSONP_CALLBACK";
+
+    // Store the returned data in theresult variable
+    this.theresult = this.jsonp.get(teamUrl)
     .map(this.extractData)
     .catch(this.handleError);
 
