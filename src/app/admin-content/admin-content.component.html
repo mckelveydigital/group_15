@@ -14,13 +14,19 @@
 
 	<div *ngIf="teams.team?.length > 0" class="row">
 
-		<div class="col-md-12">
+		<div class="col-md-6">
 
 			<select class="form-control" id="team_select">
 
 				<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
 
 			</select>
+
+		</div>
+
+		<div class="col-md-6">
+
+			<a id="edit_team_btn" class="btn btn-primary" href="">Edit Players</a>
 
 		</div>
 
