@@ -24,20 +24,20 @@
 	box-shadow: 0px 0px 56px -6px rgba(0,0,0,0.75);
 }
 
-@mixin leftGradient(){
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2e65b0+31,7db9e8+100&1+31,0+100 */
-background: -moz-linear-gradient(left, rgba(46,101,176,1) 31%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, rgba(46,101,176,1) 31%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, rgba(46,101,176,1) 31%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e65b0', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+@mixin rightGradient(){
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#349886+0,349886+69&0+0,1+69 */
+background: -moz-linear-gradient(left, rgba(52,152,134,0) 0%, rgba(52,152,134,1) 69%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(52,152,134,0) 0%,rgba(52,152,134,1) 69%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(52,152,134,0) 0%,rgba(52,152,134,1) 69%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00349886', endColorstr='#349886',GradientType=1 ); /* IE6-9 */
 }
 
-@mixin rightGradient(){
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,2e65b0+69&0+0,1+69 */
-background: -moz-linear-gradient(left, rgba(125,185,232,0) 0%, rgba(46,101,176,1) 69%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, rgba(125,185,232,0) 0%,rgba(46,101,176,1) 69%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, rgba(125,185,232,0) 0%,rgba(46,101,176,1) 69%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#2e65b0',GradientType=1 ); /* IE6-9 */
+@mixin leftGradient(){
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#349886+31,349886+100&1+31,0+100 */
+background: -moz-linear-gradient(left, rgba(52,152,134,1) 31%, rgba(52,152,134,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(52,152,134,1) 31%,rgba(52,152,134,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(52,152,134,1) 31%,rgba(52,152,134,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#349886', endColorstr='#00349886',GradientType=1 ); /* IE6-9 */
 }
 $font1: 'Poppins', sans-serif;
 $title: 'Poppins', sans-serif;
@@ -53,7 +53,10 @@ $bgColour2: #f7f7f6;
 $yellow: #f2c807;
 $skysportsblue: #2e65b0;
 $indianred:#D66060;
-
+$darkgreen: #21333e;
+$lighterdarkgreen: #253a47;
+$nicelightblue: #314d5b;
+$turq: #349886;
 
 body{
 	background-color: $white;
@@ -161,7 +164,6 @@ form{
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
-		background-color: $transgrey;
 	}
 	#menu_bar{
 		position: absolute;
@@ -195,7 +197,7 @@ form{
 	}
 }
 #home_top{
-	background-image: url("../assets/img/champions-league.jpg");
+	background-image: url("../assets/img/champions_header.jpg");
 }
 #team_holder{
 }
@@ -480,15 +482,16 @@ section#social-media h1{
 
 
 .bg-img{
-background-image: url(../assets/img/bottom.jpg);
-background-size: cover;
+/*background-image: url(../assets/img/bottom.jpg);
+*/background-size: cover;
+background-color: $lighterdarkgreen;
 background-repeat: no-repeat;
 background-position: center center;
 opacity: 0.8;
 }
 
 .ticker-container{
-    background-color: $skysportsblue;
+    background-color: $turq;
     left: 0;
     right: 0;
 	height: 75px;
@@ -520,16 +523,11 @@ ul#webticker{
 	}
 }
 
-// .ticker-spacer{
-// 	padding-left: 40px !important;
-// 	padding-right: 40px !important;
-// }
-
 .ticker-click{
 	height: 40px;
 	width: 100%;
 	display: table;
-	background-color: $black;
+	background-color: $darkgreen;
 	color: #ffffff;
 	.ticker-click-inner{
 		display: table-cell;
@@ -538,13 +536,13 @@ ul#webticker{
 }
 
 .sslogo{
-	background-color: $skysportsblue;
+	background-color: $turq;
 	display: table;
 	height: 75px;
 	.sslogo-inner{
 		display: table-cell;
-		vertical-align: top;
-		width: 100%;
+		vertical-align: middle;
+		height: 70%;
 	img{	
 		display: block;
 		margin: auto;
@@ -683,7 +681,7 @@ color:white;
 }
 
 footer{
-	background-color: $black;
+	background-color: $darkgreen;
 	ul{
 		margin: 0;
 	}
@@ -693,7 +691,11 @@ footer{
 		display: inline-block;
 		font-size: 20px;
 		a{
+			color: $white;
 			text-decoration: none;
+			i{
+				cursor: pointer;
+			}
 		}
 	}
 	.links{
@@ -727,5 +729,80 @@ footer{
 	p{
 		text-align: justify;
 		word-spacing: 1.5px;
+	}
+}
+.dark-green-bg{
+	background-color: $darkgreen;
+} 
+.sidebar{
+	background-color: $lighterdarkgreen;
+	color: $white;
+	height: 100vh;
+	min-height: 100vh;
+	h3{
+		margin: 10px 10px;
+	}
+}
+.admin-user{
+	padding: 10px 0;
+	border-bottom: 1px solid $darkgreen;
+}
+.circle{
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	text-align: center;
+	img{
+		width: 100%;
+	}
+}
+.admin-name{
+	p{
+		margin:0;
+	}
+	.small{
+		font-size: 9px;
+		margin:0;
+	}
+}
+.admin-area{
+	background-color: $nicelightblue;
+}
+app-admin-header{
+	width: 100%;
+
+}
+.admin-header-top{
+	background-color: $turq;
+	h3{
+		color: $white;
+		margin: 12px 10px;
+	}
+	.btn{
+		margin: 8px 0;
+	}
+}
+.sidebar-option-link{
+	color: $white;
+	@include transition(500ms);
+	.sidebar-option{
+		background-color: transparent;
+		@include transition(500ms);
+		p{
+			margin:10px;
+		}
+		&:hover,
+		&.on{
+			background-color: $nicelightblue;
+			border-bottom: 1px solid $darkgreen;
+		}
+	}
+	
+	&:hover,
+	&:active,
+	&:visited,
+	&:focus{
+		text-decoration:none;
 	}
 }

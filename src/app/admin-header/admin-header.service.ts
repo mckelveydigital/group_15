@@ -10,7 +10,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 
 // Export the TeamsService class
-export class EditTeamService {
+export class AdminHeaderService {
 
   // Initialise variables
   private teamsApiUrl: string;
