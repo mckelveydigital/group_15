@@ -19,6 +19,7 @@ export class AdminContentComponent implements OnInit {
   public data:any;
   public theresult: Object;
   public teamJson: Object;
+  adminheader = 1;
 
   constructor(private adminContentService:AdminContentService) { }
 
@@ -45,6 +46,8 @@ export class AdminContentComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.adminheader = 1;
 
   	// Get the data of all the teams from an external api
     this.adminContentService.getdata()

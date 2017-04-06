@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+	adminheader = 1;
+
   constructor() { }
 
   ngOnInit() {
+
+  	this.adminheader = 1;
   }
 
 }
