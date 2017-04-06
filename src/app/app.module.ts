@@ -23,6 +23,13 @@ import { TournamentContentComponent } from './tournament-content/tournament-cont
 import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminContentComponent } from './admin-content/admin-content.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
+import { EditTeamComponent } from './edit-team/edit-team.component';
+import { EditManagerComponent } from './edit-manager/edit-manager.component';
+import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { EditStadiumComponent } from './edit-stadium/edit-stadium.component';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
 
 
 
@@ -45,6 +52,13 @@ import { AdminContentComponent } from './admin-content/admin-content.component';
     FooterComponent,
     AdminComponent,
     AdminContentComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
+    EditTeamComponent,
+    EditManagerComponent,
+    EditPlayerComponent,
+    EditStadiumComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,
