@@ -68,6 +68,7 @@
 
 <!--TIMELINE END-->
 
+<!--DISPLAYS MATCHES IF MATCHES CAN BE DISPLAYED-->
 <section *ngIf="matches.matches?.length > 0" id="matches" >
 
 	<h3 class="text-center">Quarter Final Results</h3>
@@ -76,33 +77,39 @@
 
 	<div class="col-md-10 offset-md-1">
 	
-		<!-- MATCH 1 -->
+		<!-- QUARTER FINAL MATCHES -->
 		<div *ngFor="let match of matches.matches" class="container match col-md-12 mb-5">
 
 			<div class="row">
 
 				<div class="col-md-2 tournament-badge offset-md-1">
-				
+					
+					<!-- DISPLAYS HOME TEAM BADGE USING API DATA -->
 					<img src="../assets/img/{{match.home_team[0].logo_path}}.png" height="75px"/>
 
 				</div>
 
+				<!-- DISPLAYS HOME TEAM NAME USING API DATA -->
 				<div class="col-md-2 tournament-home mt-4 text-center">
 					{{match.home_team[0].name}}
 				</div>
 
+				<!-- DISPLAYS HOME TEAM GOALS USING API DATA -->
 				<div class="col-md-1 home-goal mt-4 text-center">
 					{{match.match.home_goals}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM GOALS USING API DATA -->
 				<div class="col-md-1 away-goal mt-4 text-center">
 					{{match.match.away_goals}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM NAME USING API DATA -->
 				<div class="col-md-2 tournament-away mt-4 text-center">
 					{{match.away_team[0].name}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM BADGE USING API DATA -->
 				<div class="col-md-2 tournament-badge text-center">
 					<img src="../assets/img/{{match.away_team[0].logo_path}}.png" height="75px"/>		
 				</div>
@@ -113,6 +120,7 @@
 
 				<div class="col-md-5 pr-5 text-right">
 
+				<!-- DISPLAYS HOME TEAM GOAL SCORER PLAYER NAME, MINUTE SCORED AND GOAL METHOD, USING API DATA -->
 					<div *ngFor="let goal of match.goals">
 						<p *ngIf="goal.goal_home_away === 'H'">
 							{{goal.player_name}} -
@@ -122,6 +130,7 @@
 						</p>
 					</div>
 
+				<!-- DISPLAYS HOME TEAM CARD GIVEN TO PLAYER NAME, MINUTE GIVEN AND CARD COLOUR, USING API DATA -->
 					<div *ngFor="let card of match.cards">
 						<p *ngIf="card.card_home_away === 'H'">
 						{{card.player_name}} - {{card.time}}min
@@ -131,6 +140,7 @@
 
 				</div>
 				
+				<!-- DISPLAYS MATCH STAGE, DATE, REFEREE FIRSTNAME+LASTNAME AND THE STADIUM NAME, USING API DATA -->
 				<div class="col-md-2 text-center">
 					<b>{{match.match.stage}}</b>						
 					<b>19:45</b>
@@ -143,6 +153,7 @@
 
 				<div class="col-md-5 pl-5 text-left">
 
+				<!-- DISPLAYS AWAY TEAM GOAL SCORER PLAYER NAME, MINUTE SCORED AND GOAL METHOD, USING API DATA -->
 					<div *ngFor="let goal of match.goals">
 						<p *ngIf="goal.goal_home_away === 'A'">
 							<i class="fa fa-futbol-o"></i> 
@@ -152,6 +163,7 @@
 						</p>
 					</div>
 
+				<!-- DISPLAYS AWAY TEAM CARD GIVEN TO PLAYER NAME, MINUTE GIVEN AND CARD COLOUR, USING API DATA -->
 					<div *ngFor="let card of match.cards">
 						<p *ngIf="card.card_home_away === 'A'">
 						<i class="fa fa-square {{card.colour}}_card"></i>

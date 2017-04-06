@@ -480,7 +480,8 @@ section#social-media h1{
 
 
 .bg-img{
-background-image: url(../assets/img/bottom.jpg);
+height: 100vh;
+background-image: url(../assets/img/champions-league.png);
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center center;
@@ -711,7 +712,6 @@ footer{
 .banner{
 	background-image: url("../assets/img/cardiff.jpg");
 	width: 100%;
-	height: 80vh;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -728,4 +728,8 @@ footer{
 		text-align: justify;
 		word-spacing: 1.5px;
 	}
+}
+
+.social-widgets{
+	height: 70vh !important;
 }

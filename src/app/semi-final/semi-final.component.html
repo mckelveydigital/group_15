@@ -3,72 +3,73 @@
 <!--TIMELINE-->
 
 <div class="container-fluid mt-5">
-				
+
 	<div id="timeline" class="">
-		
+
 		<div class="timeline_inner row">
-			
+
 			<div class="timeline_line"></div>
-			
+
 			<div class="timeline_1 timeline_section col-md-2 offset-md-1 no-padding">
-				
+
 				<p class="stage_name">Group Stage</p>
-				
+
 				<a routerLink="/tournament/group-stage"><div class="timeline_circle">
-					
+
 				</div></a>
-				
+
 			</div>
-			
+
 			<div class="timeline_2 timeline_section col-md-2 no-padding">
-				
+
 				<p class="stage_name">Last 16</p>
-				
+
 				<a routerLink="/tournament/last-sixteen"><div class="timeline_circle">
-					
+
 				</div></a>
-				
+
 			</div>
-			
+
 			<div class="timeline_3 timeline_section col-md-2 no-padding">
-				
+
 				<p class="stage_name">Quarter Finals</p>
-				
+
 				<a routerLink="/tournament/quarter-final"><div class="timeline_circle">
-					
+
 				</div></a>
-				
+
 			</div>
-			
+
 			<div class="timeline_4 timeline_section col-md-2 no-padding">
-				
+
 				<p class="stage_name">Semi Final</p>
-				
+
 				<a routerLink="/tournament/semi-final"><div class="timeline_circle on">
-					
+
 				</div></a>
-				
+
 			</div>
-			
+
 			<div class="timeline_5 timeline_section col-md-2 no-padding">
-				
+
 				<p class="stage_name">Final</p>
-				
+
 				<a routerLink="/tournament/final"><div class="timeline_circle ">
-					
+
 				</div></a>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</div>
-			
+
 </div>
 
 <!--TIMELINE END-->
 
 
+<!--DISPLAYS MATCHES IF MATCHES CAN BE DISPLAYED-->
 <section *ngIf="matches.matches?.length > 0" id="matches" >
 
 	<h3 class="text-center">Semi Final Results</h3>
@@ -76,53 +77,62 @@
 	<p class="text-center pb-5">Click on a match to find out more</p>
 
 	<div class="col-md-10 offset-md-1">
-	
-		<!-- MATCH 1 -->
+
+		<!-- QUARTER FINAL MATCHES -->
 		<div *ngFor="let match of matches.matches" class="container match col-md-12 mb-5">
 
 			<div class="row">
 
 				<div class="col-md-2 tournament-badge offset-md-1">
-				
+
+					<!-- DISPLAYS HOME TEAM BADGE USING API DATA -->
 					<img src="../assets/img/{{match.home_team[0].logo_path}}.png" height="75px"/>
 
 				</div>
 
+				<!-- DISPLAYS HOME TEAM NAME USING API DATA -->
 				<div class="col-md-2 tournament-home mt-4 text-center">
 					{{match.home_team[0].name}}
 				</div>
 
+				<!-- DISPLAYS HOME TEAM GOALS USING API DATA -->
 				<div class="col-md-1 home-goal mt-4 text-center">
 					{{match.match.home_goals}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM GOALS USING API DATA -->
 				<div class="col-md-1 away-goal mt-4 text-center">
 					{{match.match.away_goals}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM NAME USING API DATA -->
 				<div class="col-md-2 tournament-away mt-4 text-center">
 					{{match.away_team[0].name}}
 				</div>
 
+				<!-- DISPLAYS AWAY TEAM BADGE USING API DATA -->
 				<div class="col-md-2 tournament-badge text-center">
-					<img src="../assets/img/{{match.away_team[0].logo_path}}.png" height="75px"/>		
+					<img src="../assets/img/{{match.away_team[0].logo_path}}.png" height="75px"/>
 				</div>
 
 			</div>
 
-			<div class="more_details row"> 
+			<div class="more_details row">
 
 				<div class="col-md-5 pr-5 text-right">
 
+					<!-- DISPLAYS HOME TEAM GOAL SCORER PLAYER NAME, MINUTE SCORED AND GOAL METHOD, USING API DATA -->
 					<div *ngFor="let goal of match.goals">
 						<p *ngIf="goal.goal_home_away === 'H'">
 							{{goal.player_name}} -
-							{{goal.minute_scored}}, 
+							{{goal.minute_scored}},
 							{{goal.goal_method}}
-						    <i class="fa fa-futbol-o"></i> 
+						    <i class="fa fa-futbol-o"></i>
 						</p>
 					</div>
 
+
+					<!-- DISPLAYS HOME TEAM CARD GIVEN TO PLAYER NAME, MINUTE GIVEN AND CARD COLOUR, USING API DATA -->
 					<div *ngFor="let card of match.cards">
 						<p *ngIf="card.card_home_away === 'H'">
 						{{card.player_name}} - {{card.time}}min
@@ -131,9 +141,10 @@
 					</div>
 
 				</div>
-				
+
+				<!-- DISPLAYS MATCH STAGE, DATE, REFEREE FIRSTNAME+LASTNAME AND THE STADIUM NAME, USING API DATA -->
 				<div class="col-md-2 text-center">
-					<b>{{match.match.stage}}</b>						
+					<b>{{match.match.stage}}</b>
 					<b>19:45</b>
 					<b>{{match.match.date}}</b>
 					<h4 class="mt-3">Referee</h4>
@@ -144,15 +155,17 @@
 
 				<div class="col-md-5 pl-5 text-left">
 
+					<!-- DISPLAYS AWAY TEAM GOAL SCORER PLAYER NAME, MINUTE SCORED AND GOAL METHOD, USING API DATA -->
 					<div *ngFor="let goal of match.goals">
 						<p *ngIf="goal.goal_home_away === 'A'">
-							<i class="fa fa-futbol-o"></i> 
+							<i class="fa fa-futbol-o"></i>
 							{{goal.player_name}} -
-							{{goal.minute_scored}}, 
+							{{goal.minute_scored}},
 							{{goal.goal_method}}
 						</p>
 					</div>
 
+					<!-- DISPLAYS AWAY TEAM CARD GIVEN TO PLAYER NAME, MINUTE GIVEN AND CARD COLOUR, USING API DATA -->
 					<div *ngFor="let card of match.cards">
 						<p *ngIf="card.card_home_away === 'A'">
 						<i class="fa fa-square {{card.colour}}_card"></i>
@@ -161,7 +174,7 @@
 					</div>
 
 				</div>
-	
+
 
 			</div>
 
