@@ -1,86 +1,66 @@
-<div *ngIf="team?.length > 0" class="bg-dark">
+<div class="row dark-turq-bg">
 
-	<div class="container mt-5 mb-5">
+	<div class="col-md-12">
 
-		<div class="row">
+		<div *ngIf="teams.team?.length > 0" class="row">
 
-			<div class="col-md-6">
+			<div class="col-md-12">
 
-				<h3>Team Details</h3>
-				<p>Use the form below to edit the team details</p>
+				<select (change)="getTeamData($event.target.value)" class="form-control" id="team_select">
+					<option value="">Please Select a Team...</option>
+					<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
 
-				<form id="team_form">
-
-					<div class="form-group">
-
-						<label>Team Name</label>
-						<input type="text" class="form-control" name="team_name" value="{{team[0].name}}" />
-
-					</div>
-
-					<div class="form-group">
-
-						<label>Mascot Name</label>
-						<input type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
-
-					</div>
-
-					<div class="form-group">
-
-						<label>Description</label>
-						<textarea rows="7" class="form-control">{{team[0].description}}</textarea>
-					</div>
-
-					<div class="form-group">
-
-						<button type="Submit" class="btn btn-primary pull-right">Submit</button>
-
-					</div>
-
-				</form>
-
-			</div>
-
-			<div class="col-md-6">
-
-				<h3>Stadium Details</h3>
-				<p>Use the form below to edit the stadium details</p>
-
-				<form id="stadium_form">
-
-					<div class="form-group">
-
-						<label>Stadium Name</label>
-						<input type="text" class="form-control" name="stadium_name" value="{{stadium[0].name}}" />
-
-					</div>
-
-					<div class="form-group">
-
-						<label>Capacity</label>
-						<input type="number" class="form-control" name="capacity" value="{{stadium[0].capacity}}" />
-
-					</div>
-
-					<div class="form-group">
-
-						<label>Date Opened</label>
-						<input type="date" class="form-control" name="stadium_name" value="{{stadium[0].date_opened}}" />
-
-					</div>
-
-					<div class="form-group">
-
-						<button type="Submit" class="btn btn-primary pull-right">Submit</button>
-
-					</div>
-
-				</form>
+				</select>
 
 			</div>
 
 		</div>
 
 	</div>
+
+</div>
+
+<div class="container light-bg">
+
+<div *ngIf="team?.length > 0" class="row mt-3 pt-3 pb-3">
+
+	<div class="col-md-12">
+
+		<h3>Team Details</h3>
+		<p>Use the form below to edit the team details</p>
+
+		<form id="team_form">
+
+			<div class="form-group">
+
+				<label>Team Name</label>
+				<input type="text" class="form-control" name="team_name" value="{{team[0].name}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Mascot Name</label>
+				<input type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Description</label>
+				<textarea rows="7" class="form-control">{{team[0].description}}</textarea>
+			</div>
+
+			<div class="form-group">
+
+				<button type="Submit" class="btn btn-primary pull-right">Submit</button>
+
+			</div>
+
+		</form>
+
+	</div>
+
+</div>
 
 </div>

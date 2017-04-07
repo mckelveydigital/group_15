@@ -57,6 +57,8 @@ $darkgreen: #21333e;
 $lighterdarkgreen: #253a47;
 $nicelightblue: #314d5b;
 $turq: #349886;
+$darkturq: #3d8074;
+$lightbg: #eeeeee;
 
 body{
 	background-color: $white;
@@ -517,7 +519,7 @@ ul#webticker{
 			padding: 0 50px;
 		}
 		&:hover{
-			font-size: 22px !important;
+			font-size: 20px !important;
 			cursor: pointer;
 		}
 	}
@@ -679,7 +681,6 @@ ul#webticker{
 background-color: $skysportsblue;
 color:white;
 }
-
 footer{
 	background-color: $darkgreen;
 	ul{
@@ -695,6 +696,9 @@ footer{
 			text-decoration: none;
 			i{
 				cursor: pointer;
+			&:hover{
+				color: $yellow;
+			}
 			}
 		}
 	}
@@ -709,7 +713,6 @@ footer{
 	}
 
 }
-
 .banner{
 	background-image: url("../assets/img/cardiff.jpg");
 	width: 100%;
@@ -783,22 +786,19 @@ app-admin-header{
 		margin: 8px 0;
 	}
 }
-.sidebar-option-link{
-	color: $white;
+
+.sidebar-option{
+	background-color: transparent;
 	@include transition(500ms);
-	.sidebar-option{
-		background-color: transparent;
-		@include transition(500ms);
-		p{
-			margin:10px;
-		}
-		&:hover,
-		&.on{
-			background-color: $nicelightblue;
-			border-bottom: 1px solid $darkgreen;
-		}
+	color: $white;
+	border-bottom: 1px solid $darkgreen;
+	p{
+		margin:10px;
 	}
-	
+	&:hover,
+	&.on{
+		background-color: $nicelightblue;
+	}
 	&:hover,
 	&:active,
 	&:visited,
@@ -806,10 +806,35 @@ app-admin-header{
 		text-decoration:none;
 	}
 }
+<<<<<<< HEAD
 .facebook_holder_1{
 	background-color:$white;
 	color: $turq;
 	}
+=======
+	
+.facebook_holder{
+	iframe{
+		width:700px !important;
+	}
+}
+#team_select{
+	margin: 11px 0;
+}
+.light-bg{
+	background-color: $lightbg;
+}
+.dark-turq-bg{
+	background-color: $darkturq;
+	border-bottom: 1px solid $darkgreen;
+}
+
+
+.facebook_holder_1{
+	background-color:$white;
+	color: $turq;
+	}
+>>>>>>> remotes/origin/admin-feature
 
 .facebook_holder_2{
 	background-color:$turq;
@@ -837,4 +862,8 @@ app-admin-header{
 		fill: $yellow;
 	}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> remotes/origin/admin-feature

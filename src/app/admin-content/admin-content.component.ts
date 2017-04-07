@@ -9,9 +9,15 @@ import { AdminContentService } from './admin-content.service';
 })
 export class AdminContentComponent implements OnInit{
 
+	sectionOpened = "team";
   
   constructor(private adminContentService:AdminContentService) { }
 
+	chageSection(theSection){
+
+		this.sectionOpened= theSection;
+		console.log(this.sectionOpened);
+	}
   getTeamData(id){
     
 

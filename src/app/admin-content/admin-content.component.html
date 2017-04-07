@@ -4,7 +4,92 @@
 
 		<div class="col-md-3 sidebar">
 
-			<app-admin-sidebar></app-admin-sidebar>
+			<div class="row dark-green-bg">
+
+				<div class="col-md-12 pb-2 pt-2">
+
+					<h3>Admin Area</h3>
+
+				</div>
+
+			</div>
+
+			<div class="row admin-user">
+
+				<div class="col-md-2">
+
+					<div class="circle">
+
+						<img src="assets/img/lin-1.jpg">
+
+					</div>
+
+				</div>
+
+				<div class="col-md-10">
+
+					<div class="row admin-name">
+
+						<div class="col-md-12">
+
+							<p>Zhiwei Lin</p>
+
+						</div>
+
+						<div class="col-md-12">
+
+							<p class="small">Administrator</p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<div (click)="chageSection('team')" id="team_edit" class="row sidebar-option on">
+
+				<div class="col-md-12 pb-2 pt-2">
+
+					<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team</p>
+
+				</div>
+
+			</div>
+
+			<div (click)="chageSection('stadium')" id="stadium_edit" class="row sidebar-option">
+
+				<div class="col-md-12 pb-2 pt-2">
+
+					<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Stadium</p>
+
+				</div>
+
+			</div>
+
+
+			<div (click)="chageSection('manager')" id="manager_edit" class="row sidebar-option">
+
+				<div class="col-md-12 pb-2 pt-2">
+
+					<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Manager</p>
+
+				</div>
+
+			</div>
+
+			<div (click)="chageSection('player')" id="players_edit" class="row sidebar-option">
+
+				<div class="col-md-12 pb-2 pt-2">
+
+					<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Players</p>
+
+				</div>
+
+			</div>
+
 
 		</div>
 
@@ -12,12 +97,11 @@
 
 			<app-admin-header></app-admin-header>
 
-			<div class="row">
-
-				<app-edit-team></app-edit-team>
+			<app-edit-team *ngIf=" sectionOpened === 'team'" ></app-edit-team>
+			<app-edit-stadium *ngIf=" sectionOpened === 'stadium'" ></app-edit-stadium>
+			<app-edit-manager *ngIf=" sectionOpened === 'manager'" ></app-edit-manager>
+			<app-edit-player *ngIf=" sectionOpened === 'players'" ></app-edit-player>
 			
-			</div>
-
 		</div>
 
 	</div>
