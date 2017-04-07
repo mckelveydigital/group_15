@@ -1,11 +1,5 @@
-
-<div id="home_top" class="top_image">
-	
-	<div class="top_image_inner">
-		
-		<a href="">
-			
-			<svg class="cl-logo pb-5" width="300px" height="260px" viewBox="0 0 87 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="87px" height="86px" viewBox="0 0 87 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <title>champions-league-logo</title>
     <desc>Created with Sketch.</desc>
@@ -47,21 +41,3 @@
         </g>
     </g>
 </svg>
-		
-		</a>
-		
-	</div>
-	
-	<div id="menu_bar">
-		
-		<div class="menu_bar_inner">
-				
-			<a routerLink="/teams">Teams</a>
-			<a routerLink="/tournament">Tournament</a>
-			<a routerLink="/admin">Admin</a>
-		</div>
-		
-	</div>
-	
-</div>
-

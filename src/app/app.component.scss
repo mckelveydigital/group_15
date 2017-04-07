@@ -806,8 +806,35 @@ app-admin-header{
 		text-decoration:none;
 	}
 }
-.facebook_holder{
-	iframe{
-		width:700px !important;
+.facebook_holder_1{
+	background-color:$white;
+	color: $turq;
+	}
+
+.facebook_holder_2{
+	background-color:$turq;
+	}
+
+.facebook_holder_3{
+	background-color: $white;
+	color: $turq;
+	}
+
+.cl-logo{
+	path{
+		fill: $white;
+		@include transition(500ms);
+	}
+	polygon{
+		fill: $white;
+		@include transition(500ms);
+	}
+	&:hover{
+	path{
+		fill: $yellow;
+	}
+	polygon{
+		fill: $yellow;
+	}
 	}
 }
