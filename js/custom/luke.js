@@ -18,20 +18,20 @@ FB.init({
 });
 FB.AppEvents.logPageView();
   FB.api(
-  '/uefachampionsleague/feed?access_token=EAACEdEose0cBAP3gkPOcFhPVFBbRa7AnZAZCg9R6ZAZCgYiM1iv0EU14dfyOzoUHQoIgYFrzZCTguATN0U85IEBJVOgeYk3nmMwzIg9MeHhUzWD0hxZAbMgZC3kSfcZBpYCEJuZALAL1S7DevFrYj2NK8TksxUS4wspjv2uwOm3ss1baDa8S2MWORxnDeNtESiFAZD',
+  '/uefachampionsleague/photos?access_token=EAACEdEose0cBALUQOYtnyMR3U1zJItdBpROA6VF1Whab3VcatkKynsykoge0yYkIxNdxWAa1k5pk5WCZAZCSLZCywEYrl6e0BUvQjUVkdxJH6LO8M8xPVtZAVrWEXiiJUqZAZARLGhvjluZAzQ9ZBj5PiyUJQMjNJVYOuRL1ZCqAchHVYZAxxGweaUfjFXCXPSH3AZD',
   'GET',
   {"limit":"3"},
   function(response) {
       // Insert your code here
-      console.log(response.data[1]);
+      console.log(response);
      
-     $(document).find("#fb_message_0").html(response.data[0].message);
-     $(document).find("#fb_message_1").html(response.data[1].message);
-     $(document).find("#fb_message_2").html(response.data[2].message);
+     $(document).find("#fb_message_0").html(response.data[0]);
+     $(document).find("#fb_message_1").html(response.data[1]);
+     $(document).find("#fb_message_2").html(response.data[2]);
   }
 );
 
-};
+}; 
 
 (function(d, s, id){
  var js, fjs = d.getElementsByTagName(s)[0];
