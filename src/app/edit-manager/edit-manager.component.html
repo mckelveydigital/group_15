@@ -1,57 +1,67 @@
-<div *ngIf="manager?.length > 0" class="container mt-5 mb-5">
+<div class="row dark-turq-bg">
 
-	<div class="row">
+	<div class="col-md-12">
 
-		<div class="col-md-12">
+		<div *ngIf="teams.team?.length > 0" class="row">
 
-			<h3>Manager Details</h3>
-			<p>Use the form below to edit the manager details</p>
+			<div class="col-md-12">
 
-			<form id="manager_form">
+				<select (change)="getTeamData($event.target.value)" class="form-control" id="team_select">
+					<option value="">Please Select a Team...</option>
+					<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
 
-				<div class="row">
+				</select>
 
-					<div class="col-md-6">
-
-						<div class="form-group">
-
-							<label>First Name</label>
-							<input type="text" class="form-control" name="manager_first_name" value="{{manager[0].first_name}}" />
-
-						</div>
-
-					</div>
-
-					<div class="col-md-6">
-
-						<div class="form-group">
-
-							<label>Last Name</label>
-							<input type="text" class="form-control" name="manager_last_name" value="{{manager[0].last_name}}" />
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="form-group">
-
-					<label>Date of Birth</label>
-					<input type="date" class="form-control" name="manager_dob" value="{{manager[0].date_of_birth}}" />
-
-				</div>				
-
-				<div class="form-group">
-
-					<button type="Submit" class="btn btn-primary pull-right">Submit</button>
-
-				</div>
-
-			</form>
+			</div>
 
 		</div>
 
 	</div>
 
+</div>
+
+<div class="container light-bg">
+
+<div *ngIf="manager?.length > 0" class="row mt-3 pt-3 pb-3">
+
+	<div class="col-md-12">
+
+		<h3>Manager Details</h3>
+		<p>Use the form below to edit the manager details</p>
+
+		<form id="team_form">
+
+			<div class="form-group">
+
+				<label>First Name</label>
+				<input type="text" class="form-control" name="first_name" value="{{manager[0].first_name}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Last Name</label>
+				<input type="text" class="form-control" name="last_name" value="{{manager[0].last_name}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Date of Birth</label>
+				<input type="date" class="form-control" value="{{manager[0].date_of_birth}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<button type="Submit" class="btn btn-primary pull-right">Submit</button>
+
+			</div>
+
+		</form>
+
 	</div>
+
+</div>
+
+</div>

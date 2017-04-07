@@ -3,7 +3,7 @@ import { EditTeamService } from './edit-team.service';
 @Component({
   selector: 'app-edit-team',
   templateUrl: './edit-team.component.html',
-  styleUrls: ['./edit-team.component.scss'],
+  styleUrls: ['../app.component.scss'],
   providers: [EditTeamService]
 })
 export class EditTeamComponent implements OnInit {

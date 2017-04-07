@@ -6,7 +6,7 @@
 
 			<div class="col-md-6">
 
-				<h3><i class="fa fa-futbol-o" aria-hidden="true"></i> Leicester City</h3>
+				<h3><i class="fa fa-futbol-o" aria-hidden="true"></i> <span id="header_team_name">Edit Team</span></h3>
 
 			</div>
 
@@ -17,22 +17,6 @@
 			</div>
 
 		</div>
-
-	</div>
-
-	<div class="col-md-12">
-
-		<div *ngIf="teams.team?.length > 0" class="row">
-
-			<div class="col-md-12">
-
-				<select (change)="getTeamData($event.target.value)" class="form-control" id="team_select">
-					<option value="">Please Select a Team...</option>
-					<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
-
-				</select>
-
-			</div>
 
 	</div>
 
