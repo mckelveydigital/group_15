@@ -67,7 +67,7 @@ FB.AppEvents.logPageView();
   {"limit":"10"},
   function(response) {
       // Insert your code here
-<<<<<<< HEAD
+
       console.log(response.data[0].message);
      
     //  $(document).find("#fb_message_0").html(response.data[0].message);
@@ -76,13 +76,12 @@ FB.AppEvents.logPageView();
     //  $(document).find("#fb_message_3").html(response.data[3].message);
     //  $(document).find("#fb_message_4").html(response.data[4].message);
     //  $(document).find("#fb_message_5").html(response.data[5].message);
-=======
+
       console.log(response);
      
      $(document).find("#fb_message_0").html(response.data[0]);
      $(document).find("#fb_message_1").html(response.data[1]);
      $(document).find("#fb_message_2").html(response.data[2]);
->>>>>>> remotes/origin/admin-feature
   }
 );
 
