@@ -42,9 +42,9 @@ export class EditTeamComponent implements OnInit {
 
           this.team_form = this.fb.group({
             id:[this.team[0].id],
-            name: [this.team[0].name, Validators.required,Validators.minLength(4),Validators.maxLength(24)],
-            mascot: [this.team[0].mascot, Validators.required,Validators.minLength(4),Validators.maxLength(24)],
-            description:[this.team[0].description, Validators.required,Validators.minLength(20),Validators.maxLength(255)]
+            name: [this.team[0].name, Validators.required],
+            mascot: [this.team[0].mascot, Validators.required],
+            description:[this.team[0].description, Validators.required]
           });
 
         },

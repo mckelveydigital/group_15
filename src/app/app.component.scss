@@ -483,12 +483,12 @@ hr{
   border-bottom: 1px solid black;
 }
 
-section#social-media{
+section#video{
   width: 100%;
   height: 100vh;
   }
 
-section#social-media h1{
+section#video h1{
   font-size: 40px;
   font-weight: 700;
   font-variant: small-caps;
@@ -718,7 +718,7 @@ background-color: $skysportsblue;
 color:white;
 }
 footer{
-	background-color: $turq;
+	background-color: $lighterdarkgreen;
 	ul{
 		margin: 0;
 	}
@@ -936,4 +936,48 @@ app-admin-header{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+section#news{
+	background-color: $lightbg;
+	h1{
+		color: $lighterdarkgreen;
+		font-variant: small-caps;
+		font-weight: bolder;
+	}
+	img{
+
+	}
+}
+.news_text{
+	padding: 20px;
+	height: 200px;
+	text-align: center;
+	display: table;
+	.news_text_inner{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+
+.news_story{
+	
+	a{
+		color: $white;
+		&:hover{
+			color: $turq;
+			text-decoration: none;
+		}
+	}
+	.col-md-12{
+		background-color: $lighterdarkgreen;
+	}
+}
+.news_img{
+	padding: 0 !important;
+}
+.news_holder{
+	display: inline;
 }

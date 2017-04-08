@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HomeContentService } from './home-content.service';
-declare var jQuery:any;
  
 @Component({
   selector: 'app-home-content',
@@ -27,8 +26,10 @@ export class HomeContentComponent implements OnInit {
       val => {
 
         // Convert the returned object of teams to an array for use in the template
-        this.news = this.homeContentService.convertJson(val)
+        this.news = this.homeContentService.convertJson(val),
+        this.news.pop();
 
+        console.log(this.news);
       },
 
       // Error handling
@@ -55,26 +56,6 @@ export class HomeContentComponent implements OnInit {
 
   } 
 
-   ngAfterViewInit() {
-
-   		jQuery(document).ready(function(){
-			jQuery("#webticker").webTicker({
-			    height:'75px', 
-			    duplicate:true, 
-			    rssfrequency:0, 
-			    startEmpty:false
-			}); 
-
-
-			    jQuery("#ease-financeticker").click(function(){
-			    jQuery("#webticker").webTicker('transition', 'ease');
-			});
-
-			    jQuery("#linear-financeticker").click(function(){
-			    jQuery("#webticker").webTicker('transition', 'linear');
-			});
-   		});      
-    
-    }
+   ngAfterViewInit() {}
 
 }
