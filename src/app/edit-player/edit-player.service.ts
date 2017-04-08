@@ -82,12 +82,12 @@ export class EditPlayerService {
 
   addPlayerApi(theId, body) : Observable<any>{
 
-    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/players/";
+    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/players/add/";
 
     this.player_update = this.http.post(this.playerUpdateUrl, body)
      .map(this.extractData)
      .catch(this.handleError);
-
+     console.log(this.player_update);
      return this.player_update;
 
   }

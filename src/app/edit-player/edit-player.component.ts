@@ -94,10 +94,10 @@ export class EditPlayerComponent implements OnInit {
 
   addNewPlayer(event){
     
-    console.log(this.add_player_form.value);
     
     let Form = JSON.stringify(this.add_player_form.value);
-
+    console.log(Form);
+    
     this.editPlayerService.addPlayerApi(this.team[0].id, Form)
     .subscribe(
 
