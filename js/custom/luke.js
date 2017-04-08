@@ -13,7 +13,7 @@ $(document).on('change', '#team_select', function(){
 	$("#edit_team_btn").attr("href","/admin/edit/" + theteam);
 
 });
-
+ 
 $(document).on('click', '#team_edit', function(){
 
   $("#header_team_name").html("Edit Team");

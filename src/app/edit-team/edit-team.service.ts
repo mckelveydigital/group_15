@@ -15,16 +15,17 @@ export class EditTeamService {
   // Initialise variables
   private teamsApiUrl: string;
   private teamApiUrl: string;
+  private teamUpdateUrl: string;
   public theresult;
   result: Object;
-
+  team_update;
   // Constructor function using JsonP
-  constructor(private jsonp: Jsonp) { 
+  constructor(private jsonp: Jsonp, private http: Http) { 
 
     // Get all teams api url
     this.teamsApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams?callback=JSONP_CALLBACK`;
     this.teamApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams`;
-
+    this.teamUpdateUrl = "";
   }
 
   // Get all teams from external api
@@ -50,6 +51,21 @@ export class EditTeamService {
     .catch(this.handleError);
 
     return this.theresult;
+  }
+
+  editTeamApi(theId, body) : Observable<any>{
+
+    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let options = new RequestOptions({ headers: headers });
+
+    this.teamUpdateUrl = this.teamApiUrl + "/" + theId + "/";
+
+    this.team_update = this.http.post(this.teamUpdateUrl, body)
+     .map(this.extractData)
+     .catch(this.handleError);
+
+     return this.team_update;
+
   }
 
   // Get json data from api returned data
