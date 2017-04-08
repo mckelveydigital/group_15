@@ -59,11 +59,25 @@ $nicelightblue: #314d5b;
 $turq: #349886;
 $darkturq: #3d8074;
 $lightbg: #eeeeee;
+$lightturq: #41bea8;
 
 body{
 	background-color: $white;
 	color: $darkgrey;
 	text-align: left;
+
+}
+.btn-primary{
+	background-color: $lightturq;
+	border: 1px solid $lightturq;
+	cursor: pointer;
+	outline: none !important;
+	@include transition(500ms);
+	&:hover,
+	&:focus{
+		background-color: $nicelightblue;
+		border: 1px solid $nicelightblue;
+	};
 }
 .margin-top{
 	margin-top: 50px;
@@ -855,4 +869,20 @@ app-admin-header{
 		fill: $yellow;
 	}
 	}
+}
+.player_buttons{
+	margin: 0 10px;
+	i{
+		cursor: pointer;
+	}
+	i.edit{
+		color: $turq;
+	}
+	i.del{
+		color: $indianred;
+	}
+}
+
+#addPlayerButton{
+	margin-top: 31px;
 }
