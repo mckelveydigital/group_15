@@ -71,7 +71,7 @@ export class EditPlayerComponent implements OnInit {
   }
 
   addNewPlayer(event){
-
+    
     console.log(this.add_player_form.value);
     
     let Form = JSON.stringify(this.add_player_form.value);
@@ -99,22 +99,20 @@ export class EditPlayerComponent implements OnInit {
     
     let Form = JSON.stringify(this.players_form.value);
 
-    console.log(Form);
-    
-    // this.editPlayerService.editPlayersApi(this.team[0].id, Form)
-    // .subscribe(
+    this.editPlayerService.editPlayersApi(this.team[0].id, Form)
+    .subscribe(
 
-    //     // Get the returned values from the getTeam function
-    //     val => {
+        // Get the returned values from the getTeam function
+        val => {
 
-    //       // Set the variables to the returned data
-    //       this.form_return = val,
-    //       console.log(this.form_return)
+          // Set the variables to the returned data
+          this.form_return = val,
+          console.log(this.form_return)
 
-    //     },
+        },
 
-    //   // Error handling
-    //   error => this.errorMessage = error,);
+      // Error handling
+      error => this.errorMessage = error,);
  
   }
 
