@@ -19,7 +19,7 @@ describe('TeamsDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should display a single teams details', () => {
     expect(component).toBeTruthy();
   });
 });

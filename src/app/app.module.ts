@@ -30,6 +30,7 @@ import { EditManagerComponent } from './edit-manager/edit-manager.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { EditStadiumComponent } from './edit-stadium/edit-stadium.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
+import { LoadingComponentComponent } from './loading-component/loading-component.component';
 
 
 
@@ -59,6 +60,7 @@ import { AdminEditComponent } from './admin-edit/admin-edit.component';
     EditPlayerComponent,
     EditStadiumComponent,
     AdminEditComponent,
+    LoadingComponentComponent,
   ],
   imports: [
     BrowserModule,
