@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { routes } from './app.router';
 
 import { AppComponent } from './app.component';
@@ -64,6 +64,7 @@ import { AdminEditComponent } from './admin-edit/admin-edit.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     routes,
     JsonpModule,
     AgmCoreModule.forRoot({

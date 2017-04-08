@@ -29,26 +29,29 @@
 		<h3>Team Details</h3>
 		<p>Use the form below to edit the team details</p>
 
-		<form id="team_form">
+		<form [formGroup]="team_form" (ngSubmit)="editTeam($event)" id="team_form">
+
+			<input formControlName="id" id="theId" type="hidden" name="id" value="{{team[0].id}}"/>
 
 			<div class="form-group">
 
 				<label>Team Name</label>
-				<input type="text" class="form-control" name="team_name" value="{{team[0].name}}" />
+				<input formControlName="name" id="team_name" type="text" class="form-control" name="name" value="{{team[0].name}}" />
 
 			</div>
 
 			<div class="form-group">
 
 				<label>Mascot Name</label>
-				<input type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
+				<input formControlName="mascot" id="team_mascot" type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
 
 			</div>
 
 			<div class="form-group">
 
 				<label>Description</label>
-				<textarea rows="7" class="form-control">{{team[0].description}}</textarea>
+				<textarea formControlName="description" id="team_desc" name="description" rows="7" class="form-control" value="{{team[0].description}}"></textarea>
+
 			</div>
 
 			<div class="form-group">

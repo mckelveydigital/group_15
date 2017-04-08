@@ -59,11 +59,25 @@ $nicelightblue: #314d5b;
 $turq: #349886;
 $darkturq: #3d8074;
 $lightbg: #eeeeee;
+$lightturq: #41bea8;
 
 body{
 	background-color: $white;
 	color: $darkgrey;
 	text-align: left;
+
+}
+.btn-primary{
+	background-color: $lightturq;
+	border: 1px solid $lightturq;
+	cursor: pointer;
+	outline: none !important;
+	@include transition(500ms);
+	&:hover,
+	&:focus{
+		background-color: $nicelightblue;
+		border: 1px solid $nicelightblue;
+	};
 }
 .margin-top{
 	margin-top: 50px;
@@ -806,12 +820,11 @@ app-admin-header{
 		text-decoration:none;
 	}
 }
-<<<<<<< HEAD
+
 .facebook_holder_1{
 	background-color:$white;
 	color: $turq;
 	}
-=======
 	
 .facebook_holder{
 	iframe{
@@ -834,7 +847,6 @@ app-admin-header{
 	background-color:$white;
 	color: $turq;
 	}
->>>>>>> remotes/origin/admin-feature
 
 .facebook_holder_2{
 	background-color:$turq;
@@ -861,9 +873,22 @@ app-admin-header{
 	polygon{
 		fill: $yellow;
 	}
+}
+	
+}
+.player_buttons{
+	margin: 0 10px;
+	i{
+		cursor: pointer;
 	}
-<<<<<<< HEAD
+	i.edit{
+		color: $turq;
+	}
+	i.del{
+		color: $indianred;
+	}
 }
-=======
+
+#addPlayerButton{
+	margin-top: 31px;
 }
->>>>>>> remotes/origin/admin-feature

@@ -1,3 +1,231 @@
-<p>
-  edit-player works!
-</p>
+<div class="row dark-turq-bg">
+
+	<div class="col-md-12">
+
+		<div *ngIf="teams.team?.length > 0" class="row">
+
+			<div class="col-md-12">
+
+				<select (change)="getTeamData($event.target.value)" class="form-control" id="team_select">
+					<option value="">Please Select a Team...</option>
+					<option *ngFor="let team of teams.team" value="{{team.id}}">{{team.name}}</option>
+
+				</select>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div *ngIf="addPlayer === 'on'" class="container light-bg">
+
+	<div class="row mt-3 pt-3 pb-3">
+
+	<div class="col-md-12">
+
+		<form [formGroup]="add_player_form" (ngSubmit)="addNewPlayer($event)" class="row">
+	
+			<div class="form-group col-md-2">
+
+				<label>First Name</label>
+				<input formControlName="new_first_name" id="new_first_name" type="text" class="form-control" name="first_name" />
+
+			</div>
+
+			<div class="form-group col-md-2">
+
+				<label>Last Name</label>
+				<input formControlName="new_last_name" id="new_last_name" type="text" class="form-control" name="last_name" />
+
+			</div>
+
+			<div class="form-group col-md-2">
+
+				<label>Date Of Birth</label>
+				<input formControlName="new_date_of_birth" id="new_date_of_birth" type="date" class="form-control" name="date_of_birth" />
+
+			</div>
+
+			<div class="form-group col-md-2">
+
+				<label>First Name</label>
+				<select formControlName="new_position" id="new_position" type="text" class="form-control" name="position">
+					<option value="Forward">Forward</option>
+					<option value="Forward">Midfielder</option>
+					<option value="Forward">Defender</option>
+					<option value="Forward">Goalkeeper</option>
+				</select>
+
+			</div>
+
+			<div class="form-group col-md-2">
+
+				<label>Shirt Number</label>
+				<input formControlName="new_shirt_number" id="new_shirt_number" type="number" class="form-control" name="shirt_number" />
+
+			</div>
+
+			<div class="form-group col-md-2">
+
+				<button type="Submit" id="addPlayerButton" class="btn btn-primary pull-right">Submit</button>
+
+			</div>
+
+		</form>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="container light-bg">
+
+<div *ngIf="team?.length > 0" class="row mt-3 pt-3 pb-3">
+
+	<div class="col-md-12">
+
+		<div class="row">
+
+			<div class="col-md-6">
+
+				<h3>Player Details</h3>
+				<p>Use the form below to edit the team details</p>
+
+			</div>
+
+			<div class="col-md-6">
+
+				<button (click)="addPlayerOn()" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o"></i> &nbsp;Add Player</button>
+
+			</div>
+
+		</div>
+
+		<div class="row mb-2">
+
+			<div class="col-md-2">
+
+				<b>First Name</b>
+
+			</div>
+
+			<div class="col-md-2">
+
+				<b>Last Name</b>
+
+			</div>
+
+			<div class="col-md-2">
+
+				<b>Date Of Birth</b>
+
+			</div>
+
+			<div class="col-md-2">
+
+				<b>Position</b>
+
+			</div>
+
+			<div class="col-md-2">
+
+				<b>Shirt Number</b>
+
+			</div>
+
+			<div class="col-md-2">
+
+				<b>Edit / Delete</b>
+
+			</div>
+
+		</div>
+
+		<div *ngFor="let player of players">
+
+			<div class="row">
+
+				<div class="col-md-2">
+
+					<p>{{player.first_name}}</p>
+
+				</div>
+
+				<div class="col-md-2">
+
+					<p>{{player.last_name}}</p>
+
+				</div>
+
+				<div class="col-md-2">
+
+					<p>{{player.date_of_birth}}</p>
+
+				</div>
+
+				<div class="col-md-2">
+
+					<p>{{player.position}}</p>
+
+				</div>
+
+
+				<div class="col-md-2">
+
+					<p>{{player.shirt_number}}</p>
+
+				</div>
+
+				<div class="col-md-2">
+
+					<span class="player_buttons"><i class="fa fa-pencil-square-o edit"></i></span>
+					<span class="player_buttons"><i class="fa fa-trash del"></i></span>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+		<!-- <form [formGroup]="team_form" (ngSubmit)="editTeam($event)" id="team_form">
+
+			<input formControlName="id" id="theId" type="hidden" name="id" value="{{team[0].id}}"/>
+
+			<div class="form-group">
+
+				<label>Team Name</label>
+				<input formControlName="name" id="team_name" type="text" class="form-control" name="name" value="{{team[0].name}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Mascot Name</label>
+				<input formControlName="mascot" id="team_mascot" type="text" class="form-control" name="mascot" value="{{team[0].mascot}}" />
+
+			</div>
+
+			<div class="form-group">
+
+				<label>Description</label>
+				<textarea formControlName="description" id="team_desc" name="description" rows="7" class="form-control" value="{{team[0].description}}"></textarea>
+
+			</div>
+
+			<div class="form-group">
+
+				<button type="Submit" class="btn btn-primary pull-right">Submit</button>
+
+			</div>
+
+		</form> -->
+
+	</div>
+
+</div>
+
+</div>
