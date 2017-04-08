@@ -500,7 +500,7 @@ section#social-media h1{
 .bg-img{
 /*background-image: url(../assets/img/bottom.jpg);
 */background-size: cover;
-background-color: $lighterdarkgreen;
+background-color: $black;
 background-repeat: no-repeat;
 background-position: center center;
 opacity: 0.8;
@@ -639,10 +639,10 @@ ul#webticker{
 	width: 30px;
 	height: 30px;
 	border-radius: 100%;
-	border: 1px solid #2e65b0;
+	border: 1px solid $turq;
 	margin: auto;
 	display: block;
-	background-color: #5f9df1;
+	background-color: $darkgreen;
 	cursor: pointer;
 	-webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -650,13 +650,14 @@ ul#webticker{
     transition: all 500ms ease;
 }
 .timeline_circle:hover{
-	background-color: #2e65b0;
+	background-color: $turq;
 }
 .timeline_circle.on{
-	background-color: #2e65b0;
+	background-color: $turq;
 	width: 36px;
 	height: 36px;
 	margin-top: -3px;
+	position: relative; 
 }
 .timeline_circle.final{
 	background-color: #fff;
@@ -668,9 +669,35 @@ ul#webticker{
 	width: 100%;
 	height: 1px;
 	top: 15px;
-	position: absolute;
-	border-bottom: 1px solid #2e65b0;
+	position: relative;
+	border-bottom: 1px solid $darkgreen;
 	
+}
+
+.pulse-circle{
+  border-radius:50%;
+  width:2px;
+  height:2px;
+  position: absolute;
+  opacity:0;
+  transition: all 3s ease;
+}
+.pulse-circle{
+  -webkit-animation: pulseline 1s ease-out infinite;
+  -moz-animation: pulseline 1s ease-out infinite;
+  animation: pulseline 1s ease-out infinite;
+}
+.pulse-circle2{
+  -webkit-animation: pulseline 1s ease-out infinite .5s ;
+  -moz-animation: pulseline 1s ease-out infinite .5s ;
+  -ms-animation: pulseline 1s ease-out infinite .5s ;
+  -o-animation: pulseline 1s ease-out infinite .5s ;
+  animation: pulseline 1s ease-out infinite .5s ;
+}
+
+@keyframes pulseline {
+  0%   {   width:2px;height:2px;opacity:1;left:70px;top:20px;box-shadow:0 0 0 0px $turq;    }
+  100% {  width:36px;height:36px;opacity:0.3;left:50px;top:-3px;box-shadow:0 0 0 6px $turq;  }
 }
 .stage_name{
 	position: absolute;
@@ -696,7 +723,7 @@ background-color: $skysportsblue;
 color:white;
 }
 footer{
-	background-color: $darkgreen;
+	background-color: $turq;
 	ul{
 		margin: 0;
 	}
@@ -891,4 +918,15 @@ app-admin-header{
 
 #addPlayerButton{
 	margin-top: 31px;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    animation: spin 1500ms linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
