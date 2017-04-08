@@ -24,7 +24,10 @@ export class EditPlayerComponent implements OnInit {
   public players_form;
   public form_return;
   public addPlayer;
+  public editPlayerFormOn;
   public add_player_form;
+  public edit_player_form;
+
   constructor(private editPlayerService:EditPlayerService, public fb: FormBuilder) { }
 
   getTeamData(id){
@@ -52,7 +55,9 @@ export class EditPlayerComponent implements OnInit {
 
       // Error handling
       error => this.errorMessage = error,);
-    
+      
+      this.addPlayer = "";
+      this.editPlayerFormOn = "";
 
   }
 
@@ -65,17 +70,34 @@ export class EditPlayerComponent implements OnInit {
       new_last_name: ["", Validators.required],
       new_date_of_birth:["", Validators.required],
       new_position: ["", Validators.required],
-      new_shirt_number: ["", Validators.required]
+      new_shirt_number: ["", Validators.required],
+      new_nationality: ["", Validators.required]
+    });
+
+  }
+
+  editPlayerOn(player){
+
+    this.editPlayerFormOn = "on";
+
+    this.edit_player_form = this.fb.group({
+      update_id:[player.id],
+      update_first_name: [player.first_name, Validators.required],
+      update_last_name: [player.last_name, Validators.required],
+      update_date_of_birth:[player.date_of_birth, Validators.required],
+      update_position: [player.position, Validators.required],
+      update_shirt_number: [player.shirt_number, Validators.required],
+      update_nationality: [player.nationality, Validators.required]
     });
 
   }
 
   addNewPlayer(event){
-
-    console.log(this.add_player_form.value);
+    
     
     let Form = JSON.stringify(this.add_player_form.value);
-
+    console.log(Form);
+    
     this.editPlayerService.addPlayerApi(this.team[0].id, Form)
     .subscribe(
 
@@ -94,28 +116,44 @@ export class EditPlayerComponent implements OnInit {
   }
 
   editPlayer(event){
-
-    console.log(this.players_form.value);
+    event.preventDefault();
+    console.log(this.edit_player_form.value);
     
-    let Form = JSON.stringify(this.players_form.value);
+    let Form = JSON.stringify(this.edit_player_form.value);
 
-    console.log(Form);
-    
-    // this.editPlayerService.editPlayersApi(this.team[0].id, Form)
-    // .subscribe(
+    this.editPlayerService.editPlayersApi(this.team[0].id, Form)
+    .subscribe(
 
-    //     // Get the returned values from the getTeam function
-    //     val => {
+        // Get the returned values from the getTeam function
+        val => {
 
-    //       // Set the variables to the returned data
-    //       this.form_return = val,
-    //       console.log(this.form_return)
+          // Set the variables to the returned data
+          this.form_return = val,
+          console.log(this.form_return)
 
-    //     },
+        },
 
-    //   // Error handling
-    //   error => this.errorMessage = error,);
+      // Error handling
+      error => this.errorMessage = error,);
  
+  }
+
+  deletePlayer(player){
+    console.log(player.id);
+    this.editPlayerService.deletePlayerApi(this.team[0].id, player.id)
+    .subscribe(
+
+        // Get the returned values from the getTeam function
+        val => {
+
+          // Set the variables to the returned data
+          this.form_return = val,
+          console.log(this.form_return)
+
+        },
+
+      // Error handling
+      error => this.errorMessage = error,);
   }
 
   ngOnInit() {

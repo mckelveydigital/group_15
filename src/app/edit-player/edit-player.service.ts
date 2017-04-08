@@ -14,6 +14,7 @@ export class EditPlayerService {
 
   // Initialise variables
   private teamsApiUrl: string;
+  private playerDeleteUrl: string;
   private teamApiUrl: string;
   private playerUpdateUrl: string;
   public theresult;
@@ -55,10 +56,7 @@ export class EditPlayerService {
 
   editPlayersApi(theId, body) : Observable<any>{
 
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    let options = new RequestOptions({ headers: headers });
-
-    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/";
+    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/players/";
 
     this.player_update = this.http.post(this.playerUpdateUrl, body)
      .map(this.extractData)
@@ -68,17 +66,28 @@ export class EditPlayerService {
 
   }
 
+  deletePlayerApi(teamId, theId): Observable<any>{
+
+    console.log("service : " + theId);
+
+    this.playerDeleteUrl = this.teamApiUrl + "/" + teamId + "/players/" + theId + "/";
+
+    this.player_update = this.http.post(this.playerDeleteUrl, theId)
+     .map(this.extractData)
+     .catch(this.handleError);
+
+    return this.player_update;
+
+  }
+
   addPlayerApi(theId, body) : Observable<any>{
 
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    let options = new RequestOptions({ headers: headers });
-
-    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/players/";
+    this.playerUpdateUrl = this.teamApiUrl + "/" + theId + "/players/add/";
 
     this.player_update = this.http.post(this.playerUpdateUrl, body)
      .map(this.extractData)
      .catch(this.handleError);
-
+     console.log(this.player_update);
      return this.player_update;
 
   }
