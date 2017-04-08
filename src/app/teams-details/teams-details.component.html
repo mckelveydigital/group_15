@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <!-- If the team variable has a length greater than 0 then output this div to screen. Add a class with the team name for colour styling and a class of hide if the teamsNotVisible vairable is set to false. -->
 <div *ngIf="team?.length > 0" id="team_holder" class="{{team[0].logo_path}}" [ngClass]="{'hide': teamsNotVisible }">
 

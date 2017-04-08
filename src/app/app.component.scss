@@ -50,7 +50,7 @@ $lightergrey: #999;
 $darkgrey: #2c2e2f;
 $transgrey: rgba(37, 37, 37, 0.4);
 $bgColour2: #f7f7f6;
-$yellow: #f2c807;
+$yellow: #C1A136;
 $skysportsblue: #2e65b0;
 $indianred:#D66060;
 $darkgreen: #21333e;
@@ -483,12 +483,12 @@ hr{
   border-bottom: 1px solid black;
 }
 
-section#social-media{
+section#video{
   width: 100%;
   height: 100vh;
   }
 
-section#social-media h1{
+section#video h1{
   font-size: 40px;
   font-weight: 700;
   font-variant: small-caps;
@@ -500,7 +500,7 @@ section#social-media h1{
 .bg-img{
 /*background-image: url(../assets/img/bottom.jpg);
 */background-size: cover;
-background-color: $lighterdarkgreen;
+background-color: $black;
 background-repeat: no-repeat;
 background-position: center center;
 opacity: 0.8;
@@ -639,10 +639,11 @@ ul#webticker{
 	width: 30px;
 	height: 30px;
 	border-radius: 100%;
-	border: 1px solid #2e65b0;
+	border: 1px solid $turq;
 	margin: auto;
 	display: block;
-	background-color: #5f9df1;
+	position:relative;
+	background-color: $darkgreen;
 	cursor: pointer;
 	-webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -650,13 +651,14 @@ ul#webticker{
     transition: all 500ms ease;
 }
 .timeline_circle:hover{
-	background-color: #2e65b0;
+	background-color: $turq;
 }
 .timeline_circle.on{
-	background-color: #2e65b0;
+	background-color: $turq;
 	width: 36px;
 	height: 36px;
 	margin-top: -3px;
+	position: relative; 
 }
 .timeline_circle.final{
 	background-color: #fff;
@@ -669,8 +671,28 @@ ul#webticker{
 	height: 1px;
 	top: 15px;
 	position: absolute;
-	border-bottom: 1px solid #2e65b0;
+	border-bottom: 1px solid $darkgreen;
 	
+}
+
+.pulse-circle{
+  border-radius:50%;
+  width:2px;
+  height:2px;
+  position: absolute;
+  opacity:0;
+  transition: all 3s ease;
+}
+.pulse-circle{
+  -webkit-animation: pulseline 1s ease-out infinite;
+  -moz-animation: pulseline 1s ease-out infinite;
+  animation: pulseline 1200ms ease-out infinite;
+}
+
+
+@keyframes pulseline {
+  0%   {   width:2px;height:2px;opacity:1;left:17px;top:17px;box-shadow:0 0 0 0px $turq;    }
+  100% {  width:35px;height:35px;opacity:0.1;left:-1px;top:0px;box-shadow:0 0 0 6px $turq;  }
 }
 .stage_name{
 	position: absolute;
@@ -696,7 +718,7 @@ background-color: $skysportsblue;
 color:white;
 }
 footer{
-	background-color: $darkgreen;
+	background-color: $lighterdarkgreen;
 	ul{
 		margin: 0;
 	}
@@ -891,4 +913,71 @@ app-admin-header{
 
 #addPlayerButton{
 	margin-top: 31px;
+}
+
+// div.loader_holder{
+// 	width: 100vw;
+// 	top: 0;
+//     left: 0;
+// 	height: 100vh;
+// 	background-color: rgba(255,255,255,0.8);
+// 		div.loader{
+// 		margin: auto;	
+// 		width: 250px;
+// 		height: 250px;
+// 		animation: spin 3000ms linear infinite;
+// 	}
+// }
+
+// router-outlet + div.loader_holder{
+//     display: block;
+// }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+section#news{
+	background-color: $lightbg;
+	h1{
+		color: $lighterdarkgreen;
+		font-variant: small-caps;
+		font-weight: bolder;
+	}
+	img{
+
+	}
+}
+.news_text{
+	padding: 20px;
+	height: 200px;
+	text-align: center;
+	display: table;
+	.news_text_inner{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+
+.news_story{
+	
+	a{
+		color: $white;
+		&:hover{
+			color: $turq;
+			text-decoration: none;
+		}
+	}
+	.col-md-12{
+		background-color: $lighterdarkgreen;
+	}
+}
+.news_img{
+	padding: 0 !important;
+}
+.news_holder{
+	display: inline;
 }
