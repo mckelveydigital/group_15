@@ -70,7 +70,7 @@ export class EditPlayerService {
 
     console.log("service : " + theId);
 
-    this.playerDeleteUrl = this.teamApiUrl + "/" + teamId + "/players/" + theId + "/";
+    this.playerDeleteUrl = this.teamApiUrl + "/" + teamId + "/players/" + theId + "/delete/";
 
     this.player_update = this.http.post(this.playerDeleteUrl, theId)
      .map(this.extractData)
@@ -87,7 +87,7 @@ export class EditPlayerService {
     this.player_update = this.http.post(this.playerUpdateUrl, body)
      .map(this.extractData)
      .catch(this.handleError);
-     console.log(this.player_update);
+
      return this.player_update;
 
   }

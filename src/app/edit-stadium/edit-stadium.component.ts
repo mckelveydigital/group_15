@@ -23,6 +23,7 @@ export class EditStadiumComponent implements OnInit {
   adminheader = 1;
   public stadium_form;
   public form_return;
+  success;
 
   constructor(private editStadiumService:EditStadiumService, public fb: FormBuilder) { }
 
@@ -69,7 +70,12 @@ export class EditStadiumComponent implements OnInit {
 
           // Set the variables to the returned data
           this.form_return = val,
-          console.log(this.form_return)
+
+          this.success = document.getElementById("success_box"),
+
+          this.success.className += "on",
+
+          setTimeout(() => this.success.className = "", 2000)
 
         },
 

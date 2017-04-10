@@ -27,6 +27,7 @@ export class EditPlayerComponent implements OnInit {
   public editPlayerFormOn;
   public add_player_form;
   public edit_player_form;
+  success;
 
   constructor(private editPlayerService:EditPlayerService, public fb: FormBuilder) { }
 
@@ -75,6 +76,9 @@ export class EditPlayerComponent implements OnInit {
     });
 
   }
+  closeAddPlayer(){
+    this.addPlayer = "";
+  }
 
   editPlayerOn(player){
 
@@ -91,7 +95,10 @@ export class EditPlayerComponent implements OnInit {
     });
 
   }
-
+  closeEditPlayer(){
+    this.editPlayerFormOn = "";
+  }
+  
   addNewPlayer(event){
     
     
@@ -106,7 +113,16 @@ export class EditPlayerComponent implements OnInit {
 
           // Set the variables to the returned data
           this.form_return = val,
-          console.log(this.form_return)
+
+          this.success = document.getElementById("success_box"),
+
+          this.success.className += "on",
+
+          this.closeAddPlayer(),
+
+          this.getTeamData(this.team[0].id),
+
+          setTimeout(() => this.success.className = "", 2000)
 
         },
 
@@ -129,7 +145,16 @@ export class EditPlayerComponent implements OnInit {
 
           // Set the variables to the returned data
           this.form_return = val,
-          console.log(this.form_return)
+
+          this.success = document.getElementById("success_box"),
+
+          this.success.className += "on",
+
+          this.closeEditPlayer(),
+
+          this.getTeamData(this.team[0].id),
+
+          setTimeout(() => this.success.className = "", 2000)
 
         },
 
@@ -148,7 +173,14 @@ export class EditPlayerComponent implements OnInit {
 
           // Set the variables to the returned data
           this.form_return = val,
-          console.log(this.form_return)
+
+          this.success = document.getElementById("success_box"),
+
+          this.success.className += "on",
+
+          this.getTeamData(this.team[0].id),
+
+          setTimeout(() => this.success.className = "", 2000)
 
         },
 

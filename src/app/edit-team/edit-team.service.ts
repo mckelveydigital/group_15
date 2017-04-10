@@ -19,6 +19,7 @@ export class EditTeamService {
   public theresult;
   result: Object;
   team_update;
+  
   // Constructor function using JsonP
   constructor(private jsonp: Jsonp, private http: Http) { 
 

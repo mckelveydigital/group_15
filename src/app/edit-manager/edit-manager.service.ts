@@ -15,15 +15,18 @@ export class EditManagerService {
   // Initialise variables
   private teamsApiUrl: string;
   private teamApiUrl: string;
+  private managerUpdateUrl: string;
   public theresult;
   result: Object;
+  manager_update;
 
   // Constructor function using JsonP
-  constructor(private jsonp: Jsonp) { 
+  constructor(private jsonp: Jsonp, private http: Http) { 
 
     // Get all teams api url
     this.teamsApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams?callback=JSONP_CALLBACK`;
     this.teamApiUrl = `https://scm.ulster.ac.uk/~b00550000/com533api/api.php/teams`;
+    this.managerUpdateUrl = "";
 
   }
 
@@ -50,6 +53,18 @@ export class EditManagerService {
     .catch(this.handleError);
 
     return this.theresult;
+  }
+
+  editManagerApi(theId, body) : Observable<any>{
+
+    this.managerUpdateUrl = this.teamApiUrl + "/" + theId + "/manager/";
+
+    this.manager_update = this.http.post(this.managerUpdateUrl, body)
+     .map(this.extractData)
+     .catch(this.handleError);
+
+     return this.manager_update;
+
   }
 
   // Get json data from api returned data
