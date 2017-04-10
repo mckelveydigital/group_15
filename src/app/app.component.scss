@@ -776,8 +776,8 @@ footer{
 .sidebar{
 	background-color: $lighterdarkgreen;
 	color: $white;
-	height: 100vh;
-	min-height: 100vh;
+	height: calc(100vh - 50px);
+	min-height: calc(100vh - 50px);
 	h3{
 		margin: 10px 10px;
 	}
@@ -821,6 +821,13 @@ app-admin-header{
 	.btn{
 		margin: 8px 0;
 	}
+}
+
+.admin-scroller{
+	height: calc(100vh - 165px);
+	min-height: calc(100vh - 165px);
+	overflow-y: scroll;
+	overflow-x: visible;
 }
 
 .sidebar-option{
@@ -980,4 +987,55 @@ section#news{
 }
 .news_holder{
 	display: inline;
+}
+.close_form{
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    z-index: 10;
+	i{
+		color: $darkgreen;
+		@include transition(500ms);
+	}
+	&:hover{
+		i{
+			color: $turq;
+		}
+	}
+}
+#success_box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(255,255,255,0.8);
+	opacity: 0;
+	z-index: -100;
+	@include transition(500ms);
+	#success{
+		color: $turq;
+		position: absolute;
+		width: 150px;
+		height: 150px;
+		top: calc(50% - 75px);
+		left: calc(50% - 75px);
+		border-radius: 100%;
+		padding: 20px;
+		border: 5px solid $turq;
+		i{
+			color: $turq;
+			font-size: 110px;
+		}
+		h3{
+			margin-top: 20px;
+		}
+	}
+	&.on{
+		opacity: 1;
+		z-index: 100;
+	}
 }
