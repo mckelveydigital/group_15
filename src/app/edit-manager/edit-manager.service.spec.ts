@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { HttpModule, JsonpModule } from '@angular/http';
 import { EditManagerService } from './edit-manager.service';
 
 describe('EditManagerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EditManagerService]
+      providers: [EditManagerService],
+      imports: [HttpModule, JsonpModule],
     });
   });
 

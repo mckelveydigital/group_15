@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { HttpModule, JsonpModule } from '@angular/http';
 import { HomeContentService } from './home-content.service';
 
 describe('HomeContentService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HomeContentService]
+      providers: [HomeContentService],
+      imports: [HttpModule, JsonpModule],
     });
   });
 

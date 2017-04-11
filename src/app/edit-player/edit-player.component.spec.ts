@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { EditPlayerComponent } from './edit-player.component';
 
 describe('EditPlayerComponent', () => {
@@ -8,7 +9,8 @@ describe('EditPlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditPlayerComponent ]
+      declarations: [ EditPlayerComponent ],
+      imports: [ReactiveFormsModule, FormsModule, HttpModule, JsonpModule],
     })
     .compileComponents();
   }));

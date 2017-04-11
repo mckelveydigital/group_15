@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { HttpModule, JsonpModule } from '@angular/http';
 import { QuarterFinalService } from './quarter-final.service';
 
 describe('QuarterFinalService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [QuarterFinalService]
+      providers: [QuarterFinalService],
+      imports: [ HttpModule, JsonpModule],
     });
   });
 

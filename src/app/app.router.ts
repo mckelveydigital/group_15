@@ -21,13 +21,6 @@ import { EditManagerComponent } from './edit-manager/edit-manager.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { EditStadiumComponent } from './edit-stadium/edit-stadium.component';
 
-
-
-
-
-
-
-
 export const router: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },

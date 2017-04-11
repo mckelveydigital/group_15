@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
 import { QuarterFinalComponent } from './quarter-final.component';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 describe('QuarterFinalComponent', () => {
   let component: QuarterFinalComponent;
@@ -8,7 +9,8 @@ describe('QuarterFinalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuarterFinalComponent ]
+      declarations: [ QuarterFinalComponent, HeaderComponent ],
+      imports: [ HttpModule, JsonpModule],
     })
     .compileComponents();
   }));

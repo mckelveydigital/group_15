@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { routes } from './app.router';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TournamentComponent } from './tournament/tournament.component';
@@ -31,10 +32,11 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { EditStadiumComponent } from './edit-stadium/edit-stadium.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { LoadingComponentComponent } from './loading-component/loading-component.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -60,21 +62,25 @@ import { LoadingComponentComponent } from './loading-component/loading-component
     EditPlayerComponent,
     EditStadiumComponent,
     AdminEditComponent,
+    routes,
     LoadingComponentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     ReactiveFormsModule,
     routes,
     JsonpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCZMGjzr4C8q2cZthis7yRJbIUjip3KlAI'
-    })
+    }),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
 

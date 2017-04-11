@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { HttpModule, JsonpModule } from '@angular/http';
 import { AdminContentService } from './admin-content.service';
 
 describe('AdminContentService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AdminContentService]
+      providers: [AdminContentService],
+      imports: [HttpModule, JsonpModule],
     });
   });
 

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
 import { TeamsDetailsComponent } from './teams-details.component';
 
 describe('TeamsDetailsComponent', () => {
@@ -8,7 +8,7 @@ describe('TeamsDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamsDetailsComponent ]
+      declarations: [ TeamsDetailsComponent, HeaderComponent ]
     })
     .compileComponents();
   }));
