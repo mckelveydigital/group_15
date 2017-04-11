@@ -62,7 +62,6 @@ import { RouterModule } from '@angular/router';
     EditPlayerComponent,
     EditStadiumComponent,
     AdminEditComponent,
-    routes,
     LoadingComponentComponent,
   ],
   imports: [
