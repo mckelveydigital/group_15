@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
+import { TournamentContentComponent } from '../tournament-content/tournament-content.component';
 import { TournamentComponent } from './tournament.component';
 
 describe('TournamentComponent', () => {
@@ -8,7 +9,7 @@ describe('TournamentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TournamentComponent ]
+      declarations: [ TournamentComponent, HeaderComponent, TournamentContentComponent ]
     })
     .compileComponents();
   }));

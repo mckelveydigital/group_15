@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
 import { GroupStageComponent } from './group-stage.component';
 
 describe('GroupStageComponent', () => {
@@ -8,7 +8,7 @@ describe('GroupStageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GroupStageComponent ]
+      declarations: [ GroupStageComponent, HeaderComponent ]
     })
     .compileComponents();
   }));

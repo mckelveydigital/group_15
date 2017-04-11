@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
+import { TeamsContentComponent } from '../teams-content/teams-content.component';
 import { TeamsComponent } from './teams.component';
 
 describe('TeamsComponent', () => {
@@ -8,7 +9,7 @@ describe('TeamsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamsComponent ]
+      declarations: [ TeamsComponent, HeaderComponent, TeamsContentComponent ]
     })
     .compileComponents();
   }));

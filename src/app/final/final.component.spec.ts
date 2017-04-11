@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
 import { FinalComponent } from './final.component';
 
 describe('FinalComponent', () => {
@@ -8,7 +8,7 @@ describe('FinalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FinalComponent ]
+      declarations: [ FinalComponent, HeaderComponent ]
     })
     .compileComponents();
   }));

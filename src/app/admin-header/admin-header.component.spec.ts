@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpModule, JsonpModule } from '@angular/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminHeaderComponent } from './admin-header.component';
 
 describe('AdminHeaderComponent', () => {
@@ -8,7 +9,8 @@ describe('AdminHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminHeaderComponent ]
+      declarations: [ AdminHeaderComponent ],
+      imports: [ReactiveFormsModule, FormsModule, HttpModule, JsonpModule],
     })
     .compileComponents();
   }));
